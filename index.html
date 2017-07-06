@@ -41,6 +41,33 @@ class: center, middle
 
 Starting from SRR1658602_{1,2}.fastq
 
+---
+
+# Practice!
+Hi-C data processing pipeline
+
+1. Mapping
+  * Tools : `bwa`, `samtools`
+  * Commands:
+    ```
+    bwa mem -SP5M index fastq1 fastq2 | samtools view -bhS - > output.bam
+    ```
+    ```
+    samtools view output.bam | head -n 5
+    ```
+  * output: `bam` file
+2. Filtering / sorting / Creating a list of contacts
+  * Tools: `pairsamtools`, `pairix`
+  * outputs: `pairs`, `bam`
+3. Binning
+  * Tools: `cooler`
+  * outputs: `cool`
+4. Normalization
+  * Tools: `cooler`
+  * outputs: `cool`
+
+---
+
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
