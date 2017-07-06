@@ -48,23 +48,56 @@ Hi-C data processing pipeline
 
 1. Mapping
   * Tools : `bwa`, `samtools`
-  * Commands:
-    ```
-    bwa mem -SP5M index fastq1 fastq2 | samtools view -bhS - > output.bam
-    ```
-    ```
-    samtools view output.bam | head -n 5
-    ```
   * output: `bam` file
+
 2. Filtering / sorting / Creating a list of contacts
   * Tools: `pairsamtools`, `pairix`
-  * outputs: `pairs`, `bam`
+  * outputs: `pairs`, `bam` files
+
 3. Binning
   * Tools: `cooler`
-  * outputs: `cool`
+  * outputs: `cool` file
+
 4. Normalization
   * Tools: `cooler`
-  * outputs: `cool`
+  * outputs: `cool` file
+
+---
+
+# Alignment!
+
+  * Tools : 
+    * `bwa` (http://bio-bwa.sourceforge.net/) : alignment
+    * `samtools` (https://samtools.github.io/) : format conversion (sam->bam)
+
+  * Command
+    ```
+    bwa mem -SP5M <index> <fastq1> <fastq2> | samtools view -bhS - > output.bam
+    ```
+
+  * output: `bam` file
+
+---
+
+# How to read a `bam` file
+
+  * Tools : 
+    * `samtools` (https://samtools.github.io/) : viewing a bam file
+
+  * Command for viewing
+    ```
+    samtools view <bamfile> | less
+    ```
+
+  * SAM/BAM format: https://samtools.github.io/hts-specs/SAMv1.pdf
+
+  * Example lines
+  ```
+  SRR1658581.203938	81	chr5	76758064	0	51M50S	=	76757789	-326	GGGGTTTTACCTTGTTGGCCAGGCTGGTCTTGAACTCCTGACCTCATGATCGATCATCACCATCTTGGTTTTGGTGGGTTTTGGCCGGCTTCCTTACTGCA	.BB@DCCC@DCDDBBBDDDDCDDDDDDDDEDCC>DECCEEEFFHGHHHJIGIJJJJHHFIIIJIIJHIJJJJJJJJJJJJJJJIJJJJHHHHHFFFFFCCC	NM:i:0	MD:Z:51	AS:i:51	XS:i:48	SA:Z:chr5,76780991,+,51M50S,0,0;
+  SRR1658581.203938	2113	chr5	76780991	0	51M50H	=	76757789	-23203	TGCAGTAAGGAAGCCGGCCAAAACCCACCAAAACCAAGATGGTGATGATCG	CCCFFFFFHHHHHJJJJIJJJJJJJJJJJJJJJIHJIIJIIIFHHJJJJIG	NM:i:0	MD:Z:51	AS:i:51	XS:i:43	SA:Z:chr5,76758064,-,51M50S,0,0;
+  SRR1658581.203938	161	chr5	76757789	60	101M	=	76758064	326	TTGATTTTTCCTTCTGGACAGGCTCCAATATGGCTCTGTGCAGCACTGTTATTGGTCCTGTCGTTACTGAAAATTCTGATTTTTTTTTTTTGGAAACGGAG	CCCFFFFFHHHHHJJJJJJJJJJEHJJJJIIIJFEIJIHIIJIIIGIIHHEIIEGHGHGIFHIHIGIGIIJJHGHHHH;?CEEDDDDDDDD<-4>AC?B85	NM:i:0	MD:Z:101	AS:i:101	XS:i:0
+
+  ```
 
 ---
 
