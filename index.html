@@ -75,11 +75,15 @@ Hi-C data processing pipeline
     bwa mem -SP5M <index> <fastq1> <fastq2> | samtools view -bhS - > output.bam
     ```
 
+  * input: `fastq` files, bwa genome index files
+
   * output: `bam` file
 
 ---
 
 # How to read a `bam` file
+
+  * A `bam` file is a binary file that stores alignment information for sequenced reads
 
   * Tools : 
     * `samtools` (https://samtools.github.io/) : viewing a bam file
@@ -113,6 +117,8 @@ Hi-C data processing pipeline
     some command..
     ```
 
+  * input: `bam` file
+
   * output: `bam`, `pairs` file
 
 
@@ -120,6 +126,8 @@ Hi-C data processing pipeline
 
 
 # Pairs file
+ 
+  * A `pairs` file is a block-gzipped text file that stores list of contact loci
 
   * Tools:
     * `pairix` (https://github.com/4dn-dcic/pairix) : indexing & querying `pairs` files
@@ -144,8 +152,56 @@ Hi-C data processing pipeline
 
 ---
 
+# Binning!
+
+  * Tools:
+    * `cooler` (https://github.com/mirnylab/cooler)
+
+  * Command
+    ```
+    cooler cload pairix <chrsize_file>:<bin_size> <pairs_file> <out_prefix>.cool
+    ```
+
+  * input: `pairs` file, `chromsize` file
+
+  * output : `cool` file
 
 
+---
+
+# How to read a `cool` file
+
+  * A `cool` file is an HDF5-format file that stores contact matrices and normailzation vectors.
+
+  * Tools:
+    * `cooler` (https://github.com/mirnylab/cooler)
+
+  * Command
+    ```
+    cooler dump -b -t pixels --header --join -r chr3:1-12,000,000 -r2 chr17 out.cool 
+    ```
+
+  * Cool format : http://cooler.readthedocs.io/en/latest/datamodel.html
+
+
+---
+
+# Normalization! (Matrix balancing)
+
+  * Tools:
+    * `cooler` (https://github.com/mirnylab/cooler)
+
+  * Command
+    ```
+    cooler balance <cool_file>
+    ```
+
+  * input : `cool` file
+  
+  * output : `cool` file
+
+
+---
 
 
     </textarea>
