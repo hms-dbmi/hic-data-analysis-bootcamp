@@ -113,14 +113,17 @@ Hi-C data processing pipeline
 
   * Command
     ```
-    pairsamtools parse -c <chromsize_file> <bam_file> |
-    { pairsamtools sort } | 
-    { pairsamtools select '(pair_type == "CX") or (pair_type == "LL")' } |
-    { pairsamtools dedup \
-        --output \
+    samtools view -h <input_bam_file> | {
+        pairsamtools parse -c <chromsize_file> 
+    } | { 
+        pairsamtools sort
+    } | { 
+        pairsamtools select '(pair_type == "CX") or (pair_type == "LL")'
+    } | { 
+        pairsamtools dedup --output \
             >( pairsamtools split \
-                --output-pairs ${NODUPS_PAIRS_PATH} \
-                --output-sam ${NODUPS_SAM_PATH} ) 
+                --output-pairs <output.pairs.gz> \
+                --output-sam <output.bam> ) 
     }
     ```
 
