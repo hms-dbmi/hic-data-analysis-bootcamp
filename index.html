@@ -328,7 +328,69 @@ chr14:50,143,364-88,897,098 & chr14:70,582,768-97,882,196 [offset 0,0:0,0]
 ```
 chr14:66,384,132-76,643,845 & chr14:67,964,160-79,229,728 [offset 0,0:0,0]
 ```
+
 ---
+
+# Exporting a link
+
+---
+
+# Running HiGlass locally
+
+To look at private data, you have to run HiGlass locally. This is easily
+accomplished using a docker container.
+
+```
+docker stop higlass-container; 
+docker rm higlass-container;
+
+docker pull gehlenborglab/higlass:v0.0.62 # higher versions are experimental and likely don't work
+
+
+docker run --detach \
+           --publish 8989:80 \
+           --volume ~/hg-data:/data \
+           --volume ~/tmp:/tmp \
+           --name higlass-container \
+           gehlenborglab/higlass:v0.0.62
+```
+
+Source: [https://github.com/hms-dbmi/higlass/wiki](https://github.com/hms-dbmi/higlass/wiki)
+
+---
+
+# Importing data
+
+To load a local cooler file, place it in `~/tmp` and run the following command:
+
+```
+docker exec higlass-container python higlass-server/manage.py \
+  ingest_tileset \
+  --filename /tmp/matrix.multi.cool \
+  --datatype matrix \
+  --filetype cooler 
+```
+
+This makes the file accessible to `higlass` and registers it with the list of
+available data. The datatype needs to be specified so that higlass knows what 
+types of tracks can be used to display it. The filetype tells HiGlass how
+it can be loaded.
+
+Contrast with:
+
+```
+docker exec higlass-container python higlass-server/manage.py \
+  ingest_tileset \
+  --filename /tmp/file.hitile \
+  --filetype hitile \
+  --datatype vector \
+  --name "Some 1D genomic data"
+```
+
+For vector bigWig data.
+
+---
+
 
 # Example pipeline
 
