@@ -37,12 +37,6 @@ class: center, middle
 
 ---
 
-# Example pipeline
-
-Starting from SRR1658602_{1,2}.fastq
-
----
-
 # Practice!
 Hi-C data processing pipeline
 
@@ -221,6 +215,125 @@ Hi-C data processing pipeline
 
 
 ---
+
+class: center, middle
+
+# Visualization
+
+To explore the features of a matrix, it helps to be able to see the data. Example with HiGlass:
+
+<img src="img/sox2.png" width="600" />
+
+---
+
+class: center, middle
+
+# Existing tools
+
+<table style="margin: 0px auto">
+    <tr>
+        <td> Juicebox </td>
+        <td> <img style="margin-left: 20px" src="img/juicebox-rectangle.png" height="120" /> </td>
+    </tr>
+    <tr>
+        <td>WashU Epigenome Browser</td>
+        <td><img style="margin-left: 20px" src="img/washu-epigenome-browser.png" height="120" /></td>
+    </tr>
+    <tr> 
+        <td> 3D Genome Browser </td>
+        <td><img style="margin-left: 20px" src="img/3d-genome-browser.png" height="120" /></td>
+    </tr>
+</table>
+
+---
+
+class: center, middle
+
+# Task #1 
+
+Re-create this figure:
+
+<img src="https://cloud.githubusercontent.com/assets/2143629/24535688/a6043f1a-15a3-11e7-8197-d5d3ce227bc6.png" height=400/>
+
+---
+
+class: center, middle
+
+### Navigate to HiGlass website
+
+# [http://higlass.io/app](http://higlass.io/app)
+
+---
+
+class: center, middle
+
+# 1. Remove genome position search bar
+
+<video width="620" loop="loop" autoplay="autoplay">
+    <source src="img/copy-replace-copy.mp4" type="video/mp4">
+</video>
+
+---
+
+# 2. Remove all existing tracks
+
+<video width="620" loop="loop" autoplay="autoplay">
+    <source src="img/remove-tracks.mp4" type="video/mp4">
+</video>
+
+---
+
+# 3. Add new dataset
+
+<video width="620" loop="loop" autoplay="autoplay">
+    <source src="img/add-schwarzer-wt.mp4" type="video/mp4">
+</video>
+
+---
+
+# 4. Resize the current view and replicate it
+
+<video width="620" loop="loop" autoplay="autoplay">
+    <source src="img/resize-and-triple.mp4" type="video/mp4">
+</video>
+
+---
+
+# 5. Replace one of the existing datasets and double it
+
+<video width="620" loop="loop" autoplay="autoplay">
+    <source src="img/replace-and-double.mp4" type="video/mp4">
+</video>
+
+---
+
+# 6. Lock the zoom levels for synchronized zooming
+
+<video width="620" loop="loop" autoplay="autoplay">
+    <source src="img/lock-zoom.mp4" type="video/mp4">
+</video>
+
+---
+
+# 7. Zoom top to: 
+
+```
+chr14:50,143,364-88,897,098 & chr14:70,582,768-97,882,196 [offset 0,0:0,0]
+```
+
+---
+
+# 8 Zoom bottom to: 
+
+```
+chr14:66,384,132-76,643,845 & chr14:67,964,160-79,229,728 [offset 0,0:0,0]
+```
+---
+
+# Example pipeline
+
+Starting from SRR1658602_{1,2}.fastq
+
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
