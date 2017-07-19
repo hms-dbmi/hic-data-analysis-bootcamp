@@ -13,6 +13,13 @@
         font-family: 'Yanone Kaffeesatz';
         font-weight: normal;
       }
+
+      .column:first-of-type {float:left}
+        .column:last-of-type {float:right}
+
+        .split-40 .column:first-of-type {width: 40%}
+        .split-40 .column:last-of-type {width: 60%}
+
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
     </style>
   </head>
@@ -29,11 +36,13 @@ class: center, middle
 
 ---
 
+class: center, middle
+
 # WiFi
 
-Username: ISMBECCB
+**Username:** ISMBECCB
 
-Password: PRAGUE17
+**Password:** PRAGUE17
 
 ---
 
@@ -255,19 +264,267 @@ To explore the features of a matrix, it helps to be able to see the data. Exampl
 
 ---
 
-# HiGlass
+# HiGlass 
 
-HiGlass is an online viewer for HiC and other genomic data. It can be used
-online, or run locally with private data.
 
 <p style="text-align: center">
     <img src="img/higlass-overview.png" width=400 />
 </p>
 
+HiGlass is a viewer for HiC and other genomic data. It can be used
+online (<a href="http://higlass.io/" >http://higlass.io</a>), or run locally with private data.
 
 <h3>
-    <a href="http://higlass.io/" >http://higlass.io</a>
 </h3>
+
+---
+
+# Capabilities
+
+HiGlass is designed to facilitate the comparison of multiple genomic datasets through
+"tracks" and "views".
+
+
+<p style="text-align: center">
+    <img src="img/g12878_vs_K257.png" width=600/>
+</p>
+
+---
+
+# Anatomy of HiGlass
+
+<table>
+    <tr>
+        <td>
+            <p style="text-align: center">
+                <img src="img/higlass-anatomy-11.png" width=400/>
+            </p>
+        </td>
+        <td>
+            <p style="margin-left: 15px">
+            HiGlass is composed of a collection of views and
+            tracks.
+            </p>
+        </td>
+    </tr>
+</table>
+
+---
+
+# Anatomy of HiGlass
+
+<table>
+    <tr>
+        <td>
+            <p style="text-align: center">
+                <img src="img/higlass-anatomy-10.png" width=400/>
+            </p>
+        </td>
+        <td>
+            <p style="margin-left: 15px">
+            Each view is composed of a set of tracks which share
+            common axes. 
+            </p>
+        </td>
+    </tr>
+</table>
+
+---
+
+# Anatomy of HiGlass
+
+<table>
+    <tr>
+        <td>
+            <p style="text-align: center">
+                <img src="img/higlass-anatomy-9.png" width=400/>
+            </p>
+        </td>
+        <td>
+            <p style="margin-left: 15px">
+            Settings related to the view can be accessed via the 
+            "view settings" menu. 
+            </p>
+        </td>
+    </tr>
+</table>
+
+---
+
+# Anatomy of HiGlass
+
+<table>
+    <tr>
+        <td>
+            <p style="text-align: center">
+                <img src="img/higlass-anatomy-8.png" width=400/>
+            </p>
+        </td>
+        <td>
+            <p style="margin-left: 15px">
+            New views can be created by cloning an existing view.
+            </p>
+        </td>
+    </tr>
+</table>
+
+---
+
+# Anatomy of HiGlass
+
+<table>
+    <tr>
+        <td>
+            <p style="text-align: center">
+                <img src="img/higlass-anatomy-7.png" width=400/>
+            </p>
+        </td>
+        <td>
+            <p style="margin-left: 15px">
+            Views can be closed by clicking on the "close view" button ("X").
+            </p>
+        </td>
+    </tr>
+</table>
+
+---
+
+# Anatomy of HiGlass
+
+<table>
+    <tr>
+        <td>
+            <p style="text-align: center">
+                <img src="img/higlass-anatomy-6.png" width=400/>
+            </p>
+        </td>
+        <td>
+            <p style="margin-left: 15px">
+            The contents of a view can be modified by adding tracks.
+            </p>
+        </td>
+    </tr>
+</table>
+
+---
+
+# Anatomy of HiGlass
+
+<table>
+    <tr>
+        <td>
+            <p style="text-align: center">
+                <img src="img/higlass-anatomy-5.png" width=400/>
+            </p>
+        </td>
+        <td>
+            <p style="margin-left: 15px">
+            Tracks can be layed out horizontally where they track
+            the horizontal axis.
+            </p>
+        </td>
+    </tr>
+</table>
+
+---
+
+# Anatomy of HiGlass
+
+<table>
+    <tr>
+        <td>
+            <p style="text-align: center">
+                <img src="img/higlass-anatomy-4.png" width=400/>
+            </p>
+        </td>
+        <td>
+            <p style="margin-left: 15px">
+            Tracks can also be layed out vertically where they 
+            track the vertical axis.
+            </p>
+        </td>
+    </tr>
+</table>
+
+---
+
+# Anatomy of HiGlass
+
+<table>
+    <tr>
+        <td>
+            <p style="text-align: center">
+                <img src="img/higlass-anatomy-3.png" width=400/>
+            </p>
+        </td>
+        <td>
+            <p style="margin-left: 15px">
+            And tracks can be placed in the center, where they move
+            along both axes.
+            </p>
+        </td>
+    </tr>
+</table>
+
+---
+
+# Anatomy of HiGlass
+
+<table>
+    <tr>
+        <td>
+            <p style="text-align: center">
+                <img src="img/higlass-anatomy-2.png" width=400/>
+            </p>
+        </td>
+        <td>
+            <p style="margin-left: 15px">
+            Track settings can be adjusted via the track settings
+            menu.
+            </p>
+        </td>
+    </tr>
+</table>
+
+---
+
+# Anatomy of HiGlass
+
+<table>
+    <tr>
+        <td>
+            <p style="text-align: center">
+                <img src="img/higlass-anatomy-1.png" width=400/>
+            </p>
+        </td>
+        <td>
+            <p style="margin-left: 15px">
+                Overlays can be added on top of existing tracks by clicking
+                on the '+' icon of the track toolbar.
+            </p>
+        </td>
+    </tr>
+</table>
+
+---
+
+# Anatomy of HiGlass
+
+<table>
+    <tr>
+        <td>
+            <p style="text-align: center">
+                <img src="img/higlass-anatomy-1.png" width=400/>
+            </p>
+        </td>
+        <td>
+            <p style="margin-left: 15px">
+                Tracks can be closed by clicking on the 'X' of the
+                track toolbar.
+            </p>
+        </td>
+    </tr>
+</table>
 
 ---
 
