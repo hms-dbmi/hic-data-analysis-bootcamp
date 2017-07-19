@@ -31,15 +31,13 @@ Student Requirements: June 27th, 2017
 * 15 minutes:
   * Introduction
     * Protocol
-    * Why you want to use it
-    * Papers
-      * Rao et al introduced the first 1K map
-      * Dixon and Nora et al introduced TADs
-    * Features
-      * Compartments
-      * TADs
-      * Loops
-    * How the data is processed
+    * What Hi-C sees
+    * Levels of genome organization inferred from patterns
+      * Checkering: compartments
+      * Enriched squares without checkering: TADs
+      * Corner peaks: loops
+    * How Hi-C is processed
+    * How features are assessed
   * Hi-C processing steps (informational) [Nezar]
     * Mapping
     * Filtering
