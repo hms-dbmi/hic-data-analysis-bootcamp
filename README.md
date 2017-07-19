@@ -13,7 +13,7 @@ Student Requirements: June 27th, 2017
 
 * **Tutorial Part 1 (Introduction to HiC)**: ismb-workshop.pptx
 * **Tutorial Part 2 (Data Processing and Visualization)**: index.html or [https://hms-dbmi.github.io/3d-genome-processing-tutorial/](https://hms-dbmi.github.io/3d-genome-processing-tutorial/)
-* **Tutorial Part 3 (Data Analysis for Nuclear Compartmentalization)**: TO BE ADDED
+* **Tutorial Part 3 (Data Analysis for Nuclear Compartmentalization)**: Ma-ISMB-tutorial-2017.pdf
   
 
 ## Agenda
