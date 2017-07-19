@@ -70,11 +70,11 @@ Student Requirements: June 27th, 2017
       * Pileups
 
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp**11:30 - 11:45 Coffee Break**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**11:30 - 11:45 Coffee Break**
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp**11:45 - 12:45 Visualization**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**11:45 - 12:45 Visualization**
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp**Existing tools for contact matrix exploration**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Existing tools for contact matrix exploration**
 
 * 15 minutes [Nils]: 
   * 3D genome browser	
