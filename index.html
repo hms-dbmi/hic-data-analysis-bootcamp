@@ -78,7 +78,7 @@ ssh <username>@<aws_public_ip>
 
 ### Run docker
 ```
-mkdir data
+mkdir -p data
 docker run -it -v ~/data:/d/:rw duplexa/4dn-hic:v27 bash
 cd /d/
 ```
@@ -90,20 +90,20 @@ cd /d/
 * FASTQ input data : 
 ```
   wget -O input_R1.fastq.gz https://goo.gl/VYdHX9
-  wget -O input_R2.fastq.gz goo.gl/wPDXV3content_copyCopy short URL
+  wget -O input_R2.fastq.gz https://goo.gl/wPDXV3
   gunzip input_R1.fastq.gz
   gunzip input_R2.fastq.gz
 ```
 
 * bwaIndex
 ```
-wget -O hg38.bwaIndex.tgz goo.gl/SU61DB 
+wget -O hg38.bwaIndex.tgz https://goo.gl/SU61DB 
 tar -xzf hg38.bwaIndex.tgz
 ```
 
 * chrom size
 ```
-wget -O hg38.mainonly.chrom.size goo.gl/WfSQEV 
+wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV 
 ```
 
 
