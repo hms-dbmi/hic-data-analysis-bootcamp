@@ -710,7 +710,7 @@ The following commands can be found on the higlass wiki (google: higlass wiki) o
 docker stop higlass-container; 
 docker rm higlass-container;
 
-docker pull gehlenborglab/higlass:v0.2.5 
+docker pull gehlenborglab/higlass:v0.2.6 
 
 
 docker run --detach \
@@ -718,7 +718,7 @@ docker run --detach \
            --volume ~/hg-data:/data \
            --volume ~/tmp:/tmp \
            --name higlass-container \
-           gehlenborglab/higlass:v0.2.5
+           gehlenborglab/higlass:v0.2.6
 ```
 
 ---
@@ -777,11 +777,35 @@ docker exec higlass-container python higlass-server/manage.py \
 ```
 
 This makes the file accessible to `higlass` and registers it with the list of
-available data. The datatype needs to be specified so that higlass knows what 
-types of tracks can be used to display it. The filetype tells HiGlass how
-it can be loaded.
+available data. 
 
 ---
+
+# Displaying local data
+
+<table>
+    <tr>
+        <td>
+            <ul>
+                <li style="margin-bottom: 20px">Navigate to <a href="http://localhost:8989">http://localhost:8989</a></li>
+                <li style="margin-bottom: 20px">Click on the "Add track" button</li>
+                <li style="margin-bottom: 20px">Search for "matrix"</li>
+                <li style="margin-bottom: 20px">Double click on "matrix.multi.cool</li>
+            </ul>
+        </td>
+        <td>
+            <p style="text-align: center">
+                <video width="500" loop="loop" autoplay="autoplay">
+                    <source src="img/higlass-load-local.mp4" type="video/mp4">
+                </video>
+            </p>
+        </td>
+    </tr>
+</table>
+
+---
+
+
 
 # Documentation:
 
