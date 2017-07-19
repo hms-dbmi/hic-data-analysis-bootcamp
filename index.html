@@ -69,12 +69,14 @@ Hi-C data processing pipeline
 
 ---
 
-# Connect to a Linux VM instance on Amazon Cloud
+# Preparation
+
+### Connect to a Linux VM instance on Amazon Cloud
 ```
 ssh <username>@<aws_public_ip>
 ```
 
-# Run docker
+### Run docker
 ```
 mkdir data
 docker run -it -v ~/data:/d/:rw duplexa/4dn-hic:v27 bash
@@ -87,20 +89,20 @@ cd /d/
 
 * FASTQ input data : 
 ```
-  wget -O input_R1.fastq.gz https://s3.amazonaws.com/elasticbeanstalk-fourfront-webdev-files/55025858-2298-4271-a1ae-e68fea43491e/4DNFIQ2DFAZL.fastq.gz
-  wget -O input_R2.fastq.gz https://s3.amazonaws.com/elasticbeanstalk-fourfront-webdev-files/56e89ed7-8141-469d-89a7-3c8cf09bdb23/4DNFI7YIUCXC.fastq.gz
+  wget -O input_R1.fastq.gz https://goo.gl/VYdHX9
+  wget -O input_R2.fastq.gz goo.gl/wPDXV3content_copyCopy short URL
   gunzip input_R1.fastq.gz
   gunzip input_R2.fastq.gz
 ```
 
 * bwaIndex
 ```
-wget -O hg38.bwaIndex.tgz https://s3.amazonaws.com/elasticbeanstalk-fourfront-webdev-files/1f53df95-4cf3-41cc-971d-81bb16c486dd/4DNFIZQZ39L9.bwaIndex.tgz
+wget -O hg38.bwaIndex.tgz goo.gl/SU61DB 
 ```
 
 * chrom size
 ```
-wget -O hg38.mainonly.chrom.size https://s3.amazonaws.com/elasticbeanstalk-fourfront-webdev-files/4a6d10ee-2edb-4402-a98f-0edb1d58f5e9/4DNFI823LSII.chrom.sizes
+wget -O hg38.mainonly.chrom.size goo.gl/WfSQEV 
 ```
 
 
