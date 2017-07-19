@@ -8,6 +8,12 @@ Student Requirements: June 27th, 2017
 * Windows users
   * Putty (for ssh)
   * https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+
+## Files in this repository
+
+** Tutorial Part 1 (Introduction to HiC) **: ismb-workshop.pptx
+** Tutorial Part 2 (Data Processing and Visualization)**: index.html (open with Chrome)
+** Tutorial Part 3 (Data Analysis for Nuclear Compartmentalization)**: TO BE ADDED
   
 
 ## Agenda
