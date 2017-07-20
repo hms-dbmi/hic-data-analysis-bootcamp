@@ -22,7 +22,6 @@ dependencies:
     - numba
     - h5py
     - dask
-    - python-
     - nose 
     - pip:
         - git+https://github.com/mirnylab/cooler
