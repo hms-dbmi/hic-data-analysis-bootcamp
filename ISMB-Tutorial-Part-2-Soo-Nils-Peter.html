@@ -748,9 +748,12 @@ docker run --detach \
            --publish 8989:80 \
            --volume ~/hg-data:/data \
            --volume ~/tmp:/tmp \
+           -e SITE_URL=[YOUR_HOSTNAME] \
            --name higlass-container \
            gehlenborglab/higlass:v0.2.6
 ```
+      
+Replate **YOUR_MACHINE'S_IP** with the HOSTNAME we assigned you at the beginning of the class.
 
 ---
 
