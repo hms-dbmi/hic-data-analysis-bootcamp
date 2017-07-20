@@ -10,9 +10,9 @@
 
 * Nezar Abdennur, PhD student, MIT
 * Soo Lee, Senior Bioinformatics Scientist, Harvard Medical School
-* Nils Gehlenborg, Assistant Professor, Harvard Medical School
-* Peter Kerpedjiev, Postdoctoral Research Fellow, Harvard Medical School
-* Jian Ma, Associate Professor, Carnegie Mellon University
+* [Nils Gehlenborg](http://gehlenborglab.org/), Assistant Professor, Harvard Medical School
+* [Peter Kerpedjiev](http://emptypipes.org/about), Postdoctoral Research Fellow, Harvard Medical School
+* [Jian Ma](http://www.cs.cmu.edu/~jianma/), Associate Professor, Carnegie Mellon University
 
 ## Motivation
 
