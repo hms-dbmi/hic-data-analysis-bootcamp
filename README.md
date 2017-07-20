@@ -108,7 +108,7 @@ Tentative Schedu
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**11:30 - 11:45 Coffee Break**
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**11:45 - 12:45 Visualization**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**11:45 - 12:55 Visualization**
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Existing tools for contact matrix exploration**
 
