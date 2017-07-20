@@ -140,4 +140,26 @@ Tentative Schedu
 * Data from emerging technologies
 
 
+## Instructor Bios
+
+### Nezar Abdennur
+
+Nezar is a PhD candidate in Computational and Systems Biology at MIT. His research focuses on the determinants of 3D genome organization and the development of tools for dealing with large Hi-C datasets. http://nvictus.me
+
+### Soo Lee
+
+Soo Lee is a Senior Bioinformatics Scientist in the Department of Biomedical Informatics at Harvard Medical School. She is creating cloud-based pipelines for Hi-C and other genomic data and developing infrastructure for automation of such pipelines as part of the 4D Nucleome Data Coordination and Integration Center. https://soolee.github.io/
+
+### Nils Gehlenborg
+
+Nils is an Assistant Professor in the Department of Biomedical Informatics at Harvard Medical School. His research group is developing tools to visualize 3D genome conformation data as well as heterogeneous data from large-scale cancer genomics studies. http://gehlenborglab.org 
+
+### Peter Kerpedjiev
+
+Peter is a postdoctoral researcher working on creating tools (such as HiGlass) for visualizing large genomic data sets. Web site: http://emptypipes.org/about
+
+### Jian Ma
+
+Jian Ma is an Associate Professor in the School of Computer Science at Carnegie Mellon University. The research in his group focuses on developing algorithms to better understand genome structure and function. http://www.cs.cmu.edu/~jianma/
+
 
