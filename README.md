@@ -80,7 +80,7 @@ Student Requirements: June 27th, 2017
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Existing tools for contact matrix exploration**
 
-* 15 minutes [Nils]: 
+* 20 minutes [Nils]: 
   * 3D genome browser	
   * WashU epigenome browser
   * Juicebox
@@ -88,7 +88,7 @@ Student Requirements: June 27th, 2017
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Using HiGlass (http://higlass.io) to display contact maps [Peter]**
 
-* 25 minutes: 
+* 30 minutes: 
   * Overview of common operations such as adding tracks, removing tracks, adding views, removing view, linking views by zoom and location
   * Practical: 
     * Create an interactive version of a figure
@@ -100,7 +100,7 @@ Student Requirements: June 27th, 2017
     * Convert a bigWig file to hitile format and import it
     * Open both files in the client and navigate to an interesting location
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**12:45 - 1:30 - Data Analysis for Nuclear Compartmentalization [Jian Ma]**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**12:55 - 1:30 - Data Analysis for Nuclear Compartmentalization [Jian Ma]**
 
 * Introduction
 * DamID analysis
