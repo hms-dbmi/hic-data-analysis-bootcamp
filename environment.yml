@@ -1,0 +1,35 @@
+channels:
+    - conda-forge
+    - defaults
+    - bioconda
+dependencies:
+    - python=3.6
+    - parallel
+    - pbgzip
+    - samtools>=1.4
+    - sra-tools>=2.8.1
+    - bwa==0.7.15
+    - fastqc
+    - biopython
+    - pyfaidx
+    - pysam
+    - setuptools
+    - pip
+    - jupyter
+    - ipython
+    - cython
+    - numpy
+    - numba
+    - h5py
+    - dask
+    - python-
+    - nose 
+    - pip:
+        - git+https://github.com/mirnylab/cooler
+        - git+https://github.com/mirnylab/pairsamtools
+        - git+https://github.com/mirnylab/bioframe
+        - pypairix
+        - awscli
+        - s3fs
+        - toolz
+
