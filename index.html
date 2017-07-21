@@ -163,7 +163,7 @@ wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV
     samtools view -h <input_bam_file> | {
         pairsamtools parse -c <chromsize_file> 
     } | { 
-        pairsamtools sort
+        pairsamtools sort --nproc 4
     } | { 
         pairsamtools select '(pair_type == "CX") or (pair_type == "LL")'
     } | { 
