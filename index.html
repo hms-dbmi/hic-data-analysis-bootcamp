@@ -191,7 +191,8 @@ wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV
 
   * Command
     ```bash
-    pairix <pairsfile> 'chr1|chr1' 'chr2:1-2000000|chr4:5000000-6000000'
+    pairix <pairsfile>  # indexing 
+    pairix <pairsfile> 'chr2:1-60000000|chr4:5000000-6000000' # querying
     ```
 
   * Pairs format: https://github.com/4dn-dcic/pairix/blob/master/pairs_format_specification.md
@@ -201,7 +202,6 @@ wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV
   #columns: readID chr1 pos1 chr2 pos2 strand1 strand2
   EAS139:136:FC706VJ:2:2104:23462:197393 chr1 10000 chr1 20000 + +
   EAS139:136:FC706VJ:2:8762:23765:128766 chr1 50000 chr1 70000 + +
-  EAS139:136:FC706VJ:2:2342:15343:9863 chr1 60000 chr2 10000 + +
   ```
 
 ---
