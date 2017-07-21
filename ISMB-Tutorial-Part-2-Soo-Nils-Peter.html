@@ -46,6 +46,17 @@ class: center, middle
 
 ---
 
+# Preparation
+
+### Connect to a Linux VM instance on Amazon Cloud
+```
+ssh <username>@<aws_public_ip>
+```
+
+  * username: prague
+  * passwd: pipelinepipeline
+
+---
 
 # Practice!
 Hi-C data processing pipeline
@@ -69,17 +80,23 @@ Hi-C data processing pipeline
 
 ---
 
-# Preparation
+# Run docker
 
-### Connect to a Linux VM instance on Amazon Cloud
-```
-ssh <username>@<aws_public_ip>
-```
 
-### Run docker
+* create a data directory
 ```
 mkdir -p data
+```
+&nbsp;
+
+* pull docker image and create a container with bash entry point
+```
 docker run -it -v ~/data:/d/:rw duplexa/4dn-hic:v27 bash
+```
+&nbsp;
+
+* cd into the data directory
+```
 cd /d/
 ```
 
@@ -106,6 +123,13 @@ tar -xzf hg38.bwaIndex.tgz
 wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV 
 ```
 
+---
+
+# Output files can also be downloaded
+
+  * wget -O output.bam http://goo.gl/SZAbFS
+  * wget -O output.pairs.gz http://goo.gl/Dmh5gn
+  * wget -O output.cool http://goo.gl/z5YNrd
 
 ---
 
@@ -123,6 +147,8 @@ wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV
   * input: `fastq` files, bwa genome index files
 
   * output: `bam` file
+
+  * Add `-t <ncores>` to `bwa mem` to use multiple cores (e.g. `-t 4`)
 
 ---
 
@@ -161,14 +187,13 @@ wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV
     samtools view -h <input_bam_file> | {
         pairsamtools parse -c <chromsize_file> 
     } | { 
-        pairsamtools sort
+        pairsamtools sort --nproc 4
     } | { 
         pairsamtools select '(pair_type == "CX") or (pair_type == "LL")'
     } | { 
         pairsamtools dedup --output \
             >( pairsamtools split \
-                --output-pairs <output.pairs.gz> \
-                --output-sam <output.bam> ) 
+                --output-pairs <output.pairs.gz> )
     }
     ```
 
@@ -189,7 +214,8 @@ wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV
 
   * Command
     ```bash
-    pairix <pairsfile> 'chr1|chr1' 'chr2:1-2000000|chr4:5000000-6000000'
+    pairix <pairsfile>  # indexing 
+    pairix <pairsfile> 'chr2:1-60000000|chr4:5000000-6000000' # querying
     ```
 
   * Pairs format: https://github.com/4dn-dcic/pairix/blob/master/pairs_format_specification.md
@@ -199,7 +225,6 @@ wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV
   #columns: readID chr1 pos1 chr2 pos2 strand1 strand2
   EAS139:136:FC706VJ:2:2104:23462:197393 chr1 10000 chr1 20000 + +
   EAS139:136:FC706VJ:2:8762:23765:128766 chr1 50000 chr1 70000 + +
-  EAS139:136:FC706VJ:2:2342:15343:9863 chr1 60000 chr2 10000 + +
   ```
 
 ---
@@ -218,6 +243,7 @@ wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV
 
   * output : `cool` file
 
+  * binsize : e.g.) 5000 (high resolution), 500000 (lower resolution) 
 
 ---
 
@@ -230,7 +256,7 @@ wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV
 
   * Command
     ```bash
-    cooler dump -b -t pixels --header --join -r chr19 out.cool 
+    cooler dump -t pixels --header --join -r chr19 out.cool 
     ```
 
   * Cool format : http://cooler.readthedocs.io/en/latest/datamodel.html
@@ -252,6 +278,7 @@ wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV
   
   * output : `cool` file
 
+  * To read a 'normalized' matrix, add `-b` to the `cooler dump` command.
 
 ---
 
@@ -748,12 +775,9 @@ docker run --detach \
            --publish 8989:80 \
            --volume ~/hg-data:/data \
            --volume ~/tmp:/tmp \
-           -e SITE_URL=[YOUR_HOSTNAME] \
            --name higlass-container \
            gehlenborglab/higlass:v0.2.6
 ```
-      
-Replate **YOUR_MACHINE'S_IP** with the HOSTNAME we assigned you at the beginning of the class.
 
 ---
 
