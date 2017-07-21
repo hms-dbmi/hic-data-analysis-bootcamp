@@ -56,15 +56,7 @@ ssh <username>@<aws_public_ip>
   * username: prague
   * passwd: pipelinepipeline
 
-### Run docker
-```
-mkdir -p data
-docker run -it -v ~/data:/d/:rw duplexa/4dn-hic:v27 bash
-cd /d/
-```
-
 ---
-
 
 # Practice!
 Hi-C data processing pipeline
@@ -86,6 +78,16 @@ Hi-C data processing pipeline
   * outputs: `cool` file
 
 
+---
+
+### Run docker
+```
+mkdir -p data
+docker run -it -v ~/data:/d/:rw duplexa/4dn-hic:v27 bash
+cd /d/
+```
+
+---
 ---
 
 # Download Data
