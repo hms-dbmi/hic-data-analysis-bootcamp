@@ -9,7 +9,7 @@
 ## Organizers & Presenters
 
 * [Nezar Abdennur](http://nvictus.me/), PhD student, MIT
-* Soo Lee, Senior Bioinformatics Scientist, Harvard Medical School
+* [Soo Lee](https://compbio.hms.harvard.edu/people/soohyun-lee), Senior Bioinformatics Scientist, Harvard Medical School
 * [Nils Gehlenborg](http://gehlenborglab.org/), Assistant Professor, Harvard Medical School
 * [Peter Kerpedjiev](http://emptypipes.org/about), Postdoctoral Research Fellow, Harvard Medical School
 * [Jian Ma](http://www.cs.cmu.edu/~jianma/), Associate Professor, Carnegie Mellon University
