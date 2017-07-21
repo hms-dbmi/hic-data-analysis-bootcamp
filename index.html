@@ -46,11 +46,15 @@ class: center, middle
 
 ---
 
-# Agenda
+# Preparation
 
-1. Introduction
-2. Deep-dive
-3. ...
+### Connect to a Linux VM instance on Amazon Cloud
+```
+ssh <username>@<aws_public_ip>
+```
+
+  * username: prague
+  * passwd: pipelinepipeline
 
 ---
 
@@ -73,6 +77,48 @@ Hi-C data processing pipeline
   * Tools: `cooler`
   * outputs: `cool` file
 
+
+---
+
+### Run docker
+```
+mkdir -p data
+docker run -it -v ~/data:/d/:rw duplexa/4dn-hic:v27 bash
+cd /d/
+```
+
+---
+---
+
+# Download Data
+
+* FASTQ input data : 
+```
+  wget -O input_R1.fastq.gz https://goo.gl/VYdHX9
+  wget -O input_R2.fastq.gz https://goo.gl/wPDXV3
+  gunzip input_R1.fastq.gz
+  gunzip input_R2.fastq.gz
+```
+
+* bwaIndex
+```
+wget -O hg38.bwaIndex.tgz https://goo.gl/SU61DB 
+tar -xzf hg38.bwaIndex.tgz
+```
+
+* chrom size
+```
+wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV 
+```
+
+---
+
+# Output files can also be downloaded
+
+  * wget -O output.bam http://goo.gl/SZAbFS
+  * wget -O output.pairs.gz http://goo.gl/Dmh5gn
+  * wget -O output.cool http://goo.gl/z5YNrd
+
 ---
 
 # Alignment!
@@ -89,6 +135,8 @@ Hi-C data processing pipeline
   * input: `fastq` files, bwa genome index files
 
   * output: `bam` file
+
+  * Add `-t <ncores>` to `bwa mem` to use multiple cores (e.g. `-t 4`)
 
 ---
 
@@ -127,14 +175,13 @@ Hi-C data processing pipeline
     samtools view -h <input_bam_file> | {
         pairsamtools parse -c <chromsize_file> 
     } | { 
-        pairsamtools sort
+        pairsamtools sort --nproc 4
     } | { 
         pairsamtools select '(pair_type == "CX") or (pair_type == "LL")'
     } | { 
         pairsamtools dedup --output \
             >( pairsamtools split \
-                --output-pairs <output.pairs.gz> \
-                --output-sam <output.bam> ) 
+                --output-pairs <output.pairs.gz> )
     }
     ```
 
@@ -155,10 +202,8 @@ Hi-C data processing pipeline
 
   * Command
     ```bash
-    pairix <pairsfile> <querystr> [ <querystr> ... ] 
-    ```
-    ```bash
-    pairix <pairsfile> 'chr1|chr1' 'chr2:1-2000000|chr4:5000000-6000000'
+    pairix <pairsfile>  # indexing 
+    pairix <pairsfile> 'chr2:1-60000000|chr4:5000000-6000000' # querying
     ```
 
   * Pairs format: https://github.com/4dn-dcic/pairix/blob/master/pairs_format_specification.md
@@ -168,7 +213,6 @@ Hi-C data processing pipeline
   #columns: readID chr1 pos1 chr2 pos2 strand1 strand2
   EAS139:136:FC706VJ:2:2104:23462:197393 chr1 10000 chr1 20000 + +
   EAS139:136:FC706VJ:2:8762:23765:128766 chr1 50000 chr1 70000 + +
-  EAS139:136:FC706VJ:2:2342:15343:9863 chr1 60000 chr2 10000 + +
   ```
 
 ---
@@ -187,6 +231,7 @@ Hi-C data processing pipeline
 
   * output : `cool` file
 
+  * binsize : e.g.) 5000 (high resolution), 500000 (lower resolution) 
 
 ---
 
@@ -199,7 +244,7 @@ Hi-C data processing pipeline
 
   * Command
     ```bash
-    cooler dump -b -t pixels --header --join -r chr3:1-12,000,000 -r2 chr17 out.cool 
+    cooler dump -t pixels --header --join -r chr19 out.cool 
     ```
 
   * Cool format : http://cooler.readthedocs.io/en/latest/datamodel.html
@@ -221,6 +266,7 @@ Hi-C data processing pipeline
   
   * output : `cool` file
 
+  * To read a 'normalized' matrix, add `-b` to the `cooler dump` command.
 
 ---
 
