@@ -26,6 +26,7 @@ dependencies:
     - pip:
         - git+https://github.com/mirnylab/cooler
         - git+https://github.com/mirnylab/pairsamtools
+        - git+https://github.com/mirnylab/cooltools
         - git+https://github.com/mirnylab/bioframe
         - hg+https://bitbucket.org/mirnylab/mirnylib
         - hg+https://bitbucket.org/mirnylab/hiclib

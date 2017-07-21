@@ -70,15 +70,16 @@ Tentative Schedu
       * Corner peaks: loops
     * How Hi-C is processed
     * How features are assessed
-  * Hi-C processing steps (informational) [Nezar]
+  * Hi-C processing steps (informational)
     * Mapping
     * Filtering
     * Creating a list of contacts
     * Binning
     * Normalization
     * Feature analysis
+      * scaling
+      * compartments
       * TADs
-      * Loops
     * QC
 
 * 45min
@@ -97,13 +98,11 @@ Tentative Schedu
       * Cooler / cool
     * map a small Hi-C dataset using distiller (https://github.com/mirnylab/distiller) and generate contact matrices using cooler (https://github.com/mirnylab/cooler)
   * Practical - Feature analysis [Nezar]: 
-    * Jupyter notebook
+    * Jupyter notebook cooler walkthrough
     * Cis vs trans and scaling (contact probability vs genomic distance)
-    * Feature analysis
-      * Compartments, saddle plots
-      * Insulation, TADs
-      * Loops
-      * Pileups
+    * Compartment profile, saddle plots
+    * Insulation, TADs
+    * Pileups
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**11:30 - 11:45 Coffee Break**
@@ -163,3 +162,31 @@ Peter is a postdoctoral researcher working on creating tools (such as HiGlass) f
 Jian Ma is an Associate Professor in the School of Computer Science at Carnegie Mellon University. The research in his group focuses on developing algorithms to better understand genome structure and function. http://www.cs.cmu.edu/~jianma/
 
 
+## Resources
+
+Software
+
+* [bwa](https://github.com/lh3/bwa) and [SAM spec](https://samtools.github.io/hts-specs/SAMv1.pdf)
+* [pairsamtools](https://github.com/mirnylab/pairsamtools)
+* [pairix](https://github.com/4dn-dcic/pairix)
+* [cooler](https://github.com/mirnylab/cooler) and [docs](http://cooler.readthedocs.io/en/latest/)
+* [HiGlass](http://cooler.readthedocs.io/en/latest/) and [wiki](https://github.com/hms-dbmi/higlass/wiki)
+* [HiPiler](https://github.com/flekschas/hipiler)
+
+
+Bioinformatics workflow managers
+
+* [snakemake](https://snakemake.readthedocs.io/en/stable/)
+* [nextflow](https://www.nextflow.io/)
+
+
+Package and environment management
+
+* [conda](https://conda.io/miniconda.html)
+* [bioconda](https://bioconda.github.io/)
+
+
+Hi-C methods papers
+
+* Imakaev, Maxim, et al. "Iterative correction of Hi-C data reveals hallmarks of chromosome organization." Nature methods 9.10 (2012): 999-1003. doi:[10.1038/nmeth.2148](https://doi.org/10.1038/nmeth.2148)
+* Lajoie, Bryan R., Job Dekker, and Noam Kaplan. "The Hitchhiker’s guide to Hi-C analysis: practical guidelines." Methods 72 (2015): 65-75. doi:[10.1016/j.ymeth.2014.10.031](https://doi.org/10.1016/j.ymeth.2014.10.031)
