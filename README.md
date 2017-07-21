@@ -147,7 +147,7 @@ Nezar is a PhD candidate in Computational and Systems Biology at MIT. His resear
 
 ### Soo Lee
 
-Soo Lee is a Senior Bioinformatics Scientist in the Department of Biomedical Informatics at Harvard Medical School. She is creating cloud-based pipelines for Hi-C and other genomic data and developing infrastructure for automation of such pipelines as part of the 4D Nucleome Data Coordination and Integration Center. https://soolee.github.io/
+Soo Lee is a Senior Bioinformatics Scientist in the Department of Biomedical Informatics at Harvard Medical School. She is creating cloud-based pipelines for Hi-C and other genomic data and developing infrastructure for automation of such pipelines as part of the 4D Nucleome Data Coordination and Integration Center. https://compbio.hms.harvard.edu/people/soohyun-lee
 
 ### Nils Gehlenborg
 
