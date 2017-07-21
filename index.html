@@ -117,12 +117,14 @@ wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV
 
   * Command
     ```bash
-    bwa mem -SP5M -t <ncores> <index> <fastq1> <fastq2> | samtools view -bhS - > output.bam
+    bwa mem -SP5M <index> <fastq1> <fastq2> | samtools view -bhS - > output.bam
     ```
 
   * input: `fastq` files, bwa genome index files
 
   * output: `bam` file
+
+  * Add `-t <ncores>` to `bwa mem` to use multiple cores
 
 ---
 
