@@ -169,8 +169,7 @@ wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV
     } | { 
         pairsamtools dedup --output \
             >( pairsamtools split \
-                --output-pairs <output.pairs.gz> \
-                --output-sam <output.bam> ) 
+                --output-pairs <output.pairs.gz> )
     }
     ```
 
