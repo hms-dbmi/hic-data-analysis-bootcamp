@@ -3,7 +3,7 @@
 ## Files in this repository
 
 * **Tutorial Part 1 (Introduction to HiC)**: ISMB-Tutorial-Part-1-Nezar.pptx
-* **Tutorial Part 2 (Data Processing and Visualization)**: ISMB-Tutorial-Part-2-Soo-Nils-Peter.html or [https://hms-dbmi.github.io/3d-genome-processing-tutorial/](https://hms-dbmi.github.io/3d-genome-processing-tutorial/)
+* **Tutorial Part 2 (Data Processing and Visualization)**: [Introduction](https://github.com/hms-dbmi/3d-genome-processing-tutorial/blob/master/ISMB-Tutorial-Visualization-Intro.pdf) and ISMB-Tutorial-Part-2-Soo-Nils-Peter.html or [https://hms-dbmi.github.io/3d-genome-processing-tutorial/](https://hms-dbmi.github.io/3d-genome-processing-tutorial/)
 * **Tutorial Part 3 (Data Analysis for Nuclear Compartmentalization)**: ISMB-Tutorial-Part-3-Ma.pdf
 
 ## Organizers & Presenters
