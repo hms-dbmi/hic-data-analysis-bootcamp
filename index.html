@@ -46,6 +46,25 @@ class: center, middle
 
 ---
 
+# Preparation
+
+### Connect to a Linux VM instance on Amazon Cloud
+```
+ssh <username>@<aws_public_ip>
+```
+
+  * username: prague
+  * passwd: pipelinepipeline
+
+### Run docker
+```
+mkdir -p data
+docker run -it -v ~/data:/d/:rw duplexa/4dn-hic:v27 bash
+cd /d/
+```
+
+---
+
 
 # Practice!
 Hi-C data processing pipeline
@@ -66,25 +85,6 @@ Hi-C data processing pipeline
   * Tools: `cooler`
   * outputs: `cool` file
 
-
----
-
-# Preparation
-
-### Connect to a Linux VM instance on Amazon Cloud
-```
-ssh <username>@<aws_public_ip>
-```
-
-  * username: prague
-  * passwd: pipelinepipeline
-
-### Run docker
-```
-mkdir -p data
-docker run -it -v ~/data:/d/:rw duplexa/4dn-hic:v27 bash
-cd /d/
-```
 
 ---
 
