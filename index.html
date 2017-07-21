@@ -81,13 +81,25 @@ Hi-C data processing pipeline
 ---
 
 ### Run docker
+
+
+* create a data directory
 ```
 mkdir -p data
+```
+&nbsp;
+
+* pull docker image and create a container with bash entry point
+```
 docker run -it -v ~/data:/d/:rw duplexa/4dn-hic:v27 bash
+```
+&nbsp;
+
+* cd into the data directory
+```
 cd /d/
 ```
 
----
 ---
 
 # Download Data
