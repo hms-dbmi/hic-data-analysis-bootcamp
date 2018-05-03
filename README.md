@@ -6,13 +6,20 @@
 * **Tutorial Part 2 (Data Processing and Visualization)**: [Introduction](https://github.com/hms-dbmi/3d-genome-processing-tutorial/blob/master/ISMB-Tutorial-Visualization-Intro.pdf) and ISMB-Tutorial-Part-2-Soo-Nils-Peter.html or [https://hms-dbmi.github.io/3d-genome-processing-tutorial/](https://hms-dbmi.github.io/3d-genome-processing-tutorial/)
 * **Tutorial Part 3 (Data Analysis for Nuclear Compartmentalization)**: ISMB-Tutorial-Part-3-Ma.pdf
 
-## Organizers & Presenters
+## Presenters
 
+* Johan Gibcus, Research Instructor, Universy Massachusetts Medical School
 * [Nezar Abdennur](http://nvictus.me/), PhD student, MIT
 * [Soo Lee](https://compbio.hms.harvard.edu/people/soohyun-lee), Senior Bioinformatics Scientist, Harvard Medical School
-* [Nils Gehlenborg](http://gehlenborglab.org/), Assistant Professor, Harvard Medical School
 * [Peter Kerpedjiev](http://emptypipes.org/about), Postdoctoral Research Fellow, Harvard Medical School
-* [Jian Ma](http://www.cs.cmu.edu/~jianma/), Associate Professor, Carnegie Mellon University
+* [Fritz Lekschas](https://lekschas.de/) PhD Student, Harvard University
+* [Leonid Mirny](http://mirnylab.mit.edu/) Professor, MIT
+
+## Oragnizers
+
+* Burak Alver, Scientific Project Manager, Harvard Medical School
+* [Nils Gehlenborg](http://gehlenborglab.org/), Assistant Professor, Harvard Medical School
+* [Peter Park](https://compbio.hms.harvard.edu/), Professor, Harvard Medical School
 
 ## Motivation
 
