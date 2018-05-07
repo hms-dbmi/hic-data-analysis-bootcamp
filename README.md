@@ -7,7 +7,7 @@
 ## Files in this repository
 
 * **Tutorial Part 1 (Hi-C Protocol)**: ???
-* **Tutorial Part 2 (From fastqs to contact matrices)**: [Introduction](https://github.com/hms-dbmi/3d-genome-processing-tutorial/blob/master/ISMB-Tutorial-Visualization-Intro.pdf)
+* **Tutorial Part 2 (From fastqs to contact matrices)**: [https://hms-dbmi.github.io/hic-data-analysis-bootcamp/](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/)
 * **Tutorial Part 3 (From contact matrices to biology)**: ???
 * **Tutorial Part 4 (Hi-C Data Visualization - HiGlass)**: [https://hms-dbmi.github.io/hic-data-analysis-bootcamp/](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/)
 * **Tutorial Part 5 (Hi-C Data Visualization - HiPiler)**: hipiler.pdf
