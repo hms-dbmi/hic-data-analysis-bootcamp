@@ -4,35 +4,40 @@ channels:
     - bioconda
 dependencies:
     - python=3.6
+    - numpy
+    - scipy
+    - cython
+    - matplotlib
+    - seaborn
+    - bokeh
+    - pandas
+    - h5py
+    - numba
+    - dask
+    - cytoolz
+    - ipython
+    - jupyter
+    - ipywidgets
     - parallel
     - pbgzip
     - samtools>=1.4
     - sra-tools>=2.8.1
-    - bwa==0.7.15
     - fastqc
+    - bwa
     - biopython
     - pyfaidx
     - pysam
-    - setuptools
-    - pip
-    - jupyter
-    - ipython
-    - cython
-    - numpy
-    - numba
-    - h5py
-    - dask
-    - nose 
+    - pairix
     - pip:
-        - git+https://github.com/mirnylab/cooler
         - git+https://github.com/mirnylab/pairsamtools
         - git+https://github.com/mirnylab/cooltools
-        - git+https://github.com/mirnylab/bioframe
+        - https://github.com/nvictus/pybbi.git
+        - https://github.com/nvictus/lavaburst.git
         - hg+https://bitbucket.org/mirnylab/mirnylib
         - hg+https://bitbucket.org/mirnylab/hiclib
+	- bioframe
+        - cooler
         - multiprocess
-        - pypairix
         - awscli
         - s3fs
-        - toolz
 
