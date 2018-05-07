@@ -21,7 +21,7 @@
 * [Fritz Lekschas](https://lekschas.de/) PhD Student, Harvard University
 * [Leonid Mirny](http://mirnylab.mit.edu/) Professor, MIT
 
-## Oragnizers
+## Organizers
 
 * Burak Alver, Scientific Project Manager, Harvard Medical School
 * [Nils Gehlenborg](http://gehlenborglab.org/), Assistant Professor, Harvard Medical School
@@ -48,8 +48,6 @@ After the workshop participants should be able to obtain, process, analyze, and 
 The subject matter and practical exercises presented in this tutorial will be accessible to a broad audience. Prior experience with next generation sequencing and the data it produces will be helpful for understanding the subsequent processing steps used to derive contact maps as well as some of the artifacts that can arise during data processing.
 
 The material will be most useful to computational biologists and biologists working on genomics-related topics.
-Tentative Schedu
-
 
 ## Student Requirements:
 
@@ -63,119 +61,35 @@ Tentative Schedu
 
 ## Agenda
 
-**10:00 - 10:25 - Introduction and Overview**
-
-* Who are we? [5 minutes]
-* What we’ll cover [5 minutes]
-* AWS accounts and ssh in [10 minutes]
-
-**10:25 - 11:30 Hi-C Analysis**
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Intro to Hi-C [Nezar]**
-
-* 15 minutes:
-  * Introduction
-    * Protocol
-    * What Hi-C sees
-    * Levels of genome organization inferred from patterns
-      * Checkering: compartments
-      * Enriched squares without checkering: TADs
-      * Corner peaks: loops
-    * How Hi-C is processed
-    * How features are assessed
-  * Hi-C processing steps (informational)
-    * Mapping
-    * Filtering
-    * Creating a list of contacts
-    * Binning
-    * Normalization
-    * Feature analysis
-      * scaling
-      * compartments
-      * TADs
-    * QC
-
-* 45min
-  * Practical - processing pipeline [Soo]:
-    * Mapping
-      * bwa mem -SP5M index fastq1 fastq2 | samtools view -bhS - > output.bam
-      * samtools view output.bam | head -n 5
-      * output: bam file
-    * Filtering / sorting / Creating a list of contacts
-      * pairsamtools
-      * outputs: pairs, bam
-      * Pairs / pairix (indexes the pairs file)
-    * Binning
-      * Cooler / cool
-    * Normalization
-      * Cooler / cool
-    * map a small Hi-C dataset using distiller (https://github.com/mirnylab/distiller) and generate contact matrices using cooler (https://github.com/mirnylab/cooler)
-  * Practical - Feature analysis [Nezar]:
-    * Jupyter notebook cooler walkthrough
-    * Cis vs trans and scaling (contact probability vs genomic distance)
-    * Compartment profile, saddle plots
-    * Insulation, TADs
-    * Pileups
-
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**12:15 - 01:00  Lunch Break**
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**11:45 - 12:55  Using [HiGlass](http://higlass.io) to display contact maps [Peter]**
-
-* 30 minutes:
-  * Overview of common operations such as adding tracks, removing tracks, adding views, removing view, linking views by zoom and location
-  * Practical:
-    * Create an interactive version of a figure
-* 20 minutes: Installing HiGlass
-  * Overview of the HiGlass architecture and description of the infrastructure used to run it
-  * Practical:
-    * Create a local HiGlass instance
-    * Convert a contact map to multi-resolution format and import it
-    * Convert a bigWig file to hitile format and import it
-    * Open both files in the client and navigate to an interesting location
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**03:00 - 03:15  Break**
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**03:15 - 04:00  Feature-centric Visualization: An Intro to [HiPiler](http://hipiler.higlass.io) [Fritz]**
-
-* 15 minutes: Introduction
-  * The snippets approach to exploring many features at once
-  * What you can do with HiPiler
-  *
-* 10 minutes: Installing and Loading Data
-  * Go to [http://hipiler.higlass.io](http://hipiler.higlass.io)
-  * Simple and fast: Convert BEDPE to CSV for importing snippets into HiPiler
-  * Powerful and slow: Convert BEDPE to JSON and combine it with a HiHGlass for importing snippets into HiPiler
-  * Export filtered and labeled annotations
-* 15 minutes: Practical
-  * Create a CSV file from
-* 5 minutes: Questions
-  * Please give us feedback and enter a raffle for $XX by filling out:
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**04:00 - 05:00  Keynote [Leonid]**
+**09:00 - 09:10** Introduction and Overview (Peter Park and Burak Alver, Harvard)
+**09:10 - 09:30** Hi-C Protocol (Johan Gibcus, UMass)
+**10:30 - 10:45** _Break_
+**10:45 - 12:15** From fastqs to contact matrices (Soohyun Lee, Harvard)
+**12:15 - 13:00** _Lunch_
+**13:00 - 14:00** From contact matrices to biology (Nezar Abdennur, MIT)
+**14:00 - 15:00** Hi-C Data Visualization - HiGlass (Peter Kerpedjiev, Harvard)
+**15:00 - 15:15** _Break_
+**15:15 - 16:00** Hi-C Data Visualization - HiPiler (Fritz Lekschas, Harvard)
+**16:00 - 17:00** Keynote Speaker - Leonid Mirny, MIT
 
 
 ## Instructor Bios
 
 ### Johan Gibcus
 
-Some text about Johan.
-
-### Nezar Abdennur
-
-Nezar is a PhD candidate in Computational and Systems Biology at MIT. His research focuses on the determinants of 3D genome organization and the development of tools for dealing with large Hi-C datasets. Twitter: [nv1ctus](https://twitter.com/nv1ctus) Web: [nvictus.me](http://nvictus.me)
+Johan Gibcus is a Research Instructor at the University of Massachussetts Medical School. He has not only used but also refined the Hi-C protocol to answer important biological questions about chromosome organization and replication.
 
 ### Soo Lee
 
 Soo Lee is a Senior Bioinformatics Scientist in the Department of Biomedical Informatics at Harvard Medical School. She is creating cloud-based pipelines for Hi-C and other genomic data and developing infrastructure for automation of such pipelines as part of the 4D Nucleome Data Coordination and Integration Center. Web: [compbio.hms.harvard.edu/people/soohyun-lee](https://compbio.hms.harvard.edu/people/soohyun-lee)
 
-### Nils Gehlenborg
+### Nezar Abdennur
 
-Nils is an Assistant Professor in the Department of Biomedical Informatics at Harvard Medical School. His research group is developing tools to visualize 3D genome conformation data as well as heterogeneous data from large-scale cancer genomics studies. Twitter: [ngehlenborg](https://twitter.com/ngehlenborg) Web: [gehlenborglab.org](http://gehlenborglab.org)
+Nezar Abdennur is a PhD candidate in Computational and Systems Biology at MIT. His research focuses on the determinants of 3D genome organization and the development of tools for dealing with large Hi-C datasets. Twitter: [nv1ctus](https://twitter.com/nv1ctus) Web: [nvictus.me](http://nvictus.me)
 
 ### Peter Kerpedjiev
 
-Peter is a postdoctoral researcher working on creating tools (such as HiGlass) for visualizing large genomic data sets. Twitter: [pkerpedjiev](https://twitter.com/pkerpedjiev) Web: [emptypipes.org](http://emptypipes.org)
+Peter Kerpedjiev is a postdoctoral researcher working on creating tools (such as HiGlass) for visualizing large genomic data sets. Twitter: [pkerpedjiev](https://twitter.com/pkerpedjiev) Web: [emptypipes.org](http://emptypipes.org)
 
 ### Fritz Lekschas
 
@@ -183,7 +97,7 @@ Fritz is a PhD student working on biomedical information visualization with focu
 
 ### Leonid Mirny
 
-Some text about Leonid. Twitter: [leonidmirny](https://twitter.com/leonidmirny) Web: [mirnylab.mit.edu](http://mirnylab.mit.edu)
+Leonid Mirny is a professor at MIT's Institute for Medical Engineering & Science. His lab studies the three dimensional organization of chromosomes using a combination of computational analysis and simulation. Web site: http://mirnylab.mit.edu/
 
 
 ## Resources
