@@ -91,7 +91,7 @@ mkdir -p data
 
 * pull docker image and create a container with bash entry point
 ```
-docker run -it -v ~/data:/d/:rw duplexa/4dn-hic:v27 bash
+docker run -it -v ~/data:/d/:rw duplexa/4dn-hic:v42 bash
 ```
 &nbsp;
 
@@ -184,17 +184,10 @@ wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV
 
   * Command
     ```bash
-    samtools view -h <input_bam_file> | {
-        pairsamtools parse -c <chromsize_file> 
-    } | { 
-        pairsamtools sort --nproc 4
-    } | { 
-        pairsamtools select '(pair_type == "CX") or (pair_type == "LL")'
-    } | { 
-        pairsamtools dedup --output \
-            >( pairsamtools split \
-                --output-pairs <output.pairs.gz> )
-    }
+    samtools view -h <input_bam_file> | pairsamtools parse -c <chromsize_file> > parsed.sam.pairs.gz
+    pairsamtools sort --nproc 4 parsed.sam.pairs.gz > sorted.sam.pairs.gz
+    pairsamtools select '(pair_type == "CX") or (pair_type == "LL")' sorted.sam.pairs.gz > filtered.sam.pairs.gz
+    pairsamtools dedup --output >( pairsamtools split --output-pairs <output.pairs.gz> ) > filtered.sam.pairs.gz
     ```
 
   * input: `bam` file
