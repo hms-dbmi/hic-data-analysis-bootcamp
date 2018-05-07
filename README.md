@@ -62,14 +62,23 @@ The material will be most useful to computational biologists and biologists work
 ## Agenda
 
 **09:00 - 09:10** Introduction and Overview (Peter Park and Burak Alver, Harvard)
+
 **09:10 - 09:30** Hi-C Protocol (Johan Gibcus, UMass)
+
 **10:30 - 10:45** _Break_
+
 **10:45 - 12:15** From fastqs to contact matrices (Soohyun Lee, Harvard)
+
 **12:15 - 13:00** _Lunch_
+
 **13:00 - 14:00** From contact matrices to biology (Nezar Abdennur, MIT)
+
 **14:00 - 15:00** Hi-C Data Visualization - HiGlass (Peter Kerpedjiev, Harvard)
+
 **15:00 - 15:15** _Break_
+
 **15:15 - 16:00** Hi-C Data Visualization - HiPiler (Fritz Lekschas, Harvard)
+
 **16:00 - 17:00** Keynote Speaker - Leonid Mirny, MIT
 
 
