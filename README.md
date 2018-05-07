@@ -71,6 +71,8 @@ The material will be most useful to computational biologists and biologists work
 
 ### Johan Gibcus
 
+Johan Gibcus is a Research Instructor at the University of Massachussetts Medical School. He has not only used but also refined the Hi-C protocol to answer important biological questions about chromosome organization and replication.
+
 ### Nezar Abdennur
 
 Nezar Abdennur is a PhD candidate in Computational and Systems Biology at MIT. His research focuses on the determinants of 3D genome organization and the development of tools for dealing with large Hi-C datasets. http://nvictus.me
