@@ -30,7 +30,7 @@ class: center, middle
 
 # 3D Genome Data Processing, Analysis, and Visualization Tutorial
 
-## ISMB 2017, Prague, Czech Republic
+## HiC Boot Camp 2018, Boston, MA
 
 #### Nezar Abdennur, Soo Lee, Nils Gehlenborg, Peter Kerpedjiev, Jian Ma
 
@@ -40,9 +40,7 @@ class: center, middle
 
 # WiFi
 
-**Username:** ISMBECCB
-
-**Password:** PRAGUE17
+Harvard Guest
 
 ---
 
@@ -53,8 +51,8 @@ class: center, middle
 ssh <username>@<aws_public_ip>
 ```
 
-  * username: prague
-  * passwd: pipelinepipeline
+  * username: ec2-user
+  * passwd: bootcamp0508
 
 ---
 
@@ -91,7 +89,7 @@ mkdir -p data
 
 * pull docker image and create a container with bash entry point
 ```
-docker run -it -v ~/data:/d/:rw duplexa/4dn-hic:v27 bash
+docker run -it -v ~/data:/d/:rw duplexa/4dn-hic:v42 bash
 ```
 &nbsp;
 
@@ -184,17 +182,12 @@ wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV
 
   * Command
     ```bash
-    samtools view -h <input_bam_file> | {
-        pairsamtools parse -c <chromsize_file> 
-    } | { 
-        pairsamtools sort --nproc 4
-    } | { 
-        pairsamtools select '(pair_type == "CX") or (pair_type == "LL")'
-    } | { 
-        pairsamtools dedup --output \
-            >( pairsamtools split \
-                --output-pairs <output.pairs.gz> )
-    }
+    samtools view -h <input_bam_file> | pairsamtools parse -c <chromsize_file> --output parsed.sam.pairs.gz
+    pairsamtools sort --nproc 4 --output sorted.sam.pairs.gz parsed.sam.pairs.gz
+    pairsamtools dedup --mark-dups --output deduped.sam.pairs.gz sorted.sam.pairs.gz
+    pairsamtools select '(pair_type == "UU") or (pair_type == "UR") or (pair_type == "RU")' \
+        --output filtered.sam.pairs.gz deduped.sam.pairs.gz
+    pairsamtools split --output-pairs output.pairs.gz filtered.sam.pairs.gz
     ```
 
   * input: `bam` file
