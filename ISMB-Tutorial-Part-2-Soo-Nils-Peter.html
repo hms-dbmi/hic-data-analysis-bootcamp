@@ -184,10 +184,12 @@ wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV
 
   * Command
     ```bash
-    samtools view -h <input_bam_file> | pairsamtools parse -c <chromsize_file> > parsed.sam.pairs.gz
-    pairsamtools sort --nproc 4 parsed.sam.pairs.gz > sorted.sam.pairs.gz
-    pairsamtools select '(pair_type == "CX") or (pair_type == "LL")' sorted.sam.pairs.gz > filtered.sam.pairs.gz
-    pairsamtools dedup --output >( pairsamtools split --output-pairs <output.pairs.gz> ) > filtered.sam.pairs.gz
+    samtools view -h <input_bam_file> | pairsamtools parse -c <chromsize_file> --output parsed.sam.pairs.gz
+    pairsamtools sort --nproc 4 --output sorted.sam.pairs.gz parsed.sam.pairs.gz
+    pairsamtools dedup --mark-dups --output deduped.sam.pairs.gz sorted.sam.pairs.gz
+    pairsamtools select '(pair_type == "UU") or (pair_type == "UR") or (pair_type == "RU")' \
+        --output filtered.sam.pairs.gz deduped.sam.pairs.gz
+    pairsamtools split --output-pairs output.pairs.gz filtered.sam.pairs.gz
     ```
 
   * input: `bam` file
