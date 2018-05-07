@@ -28,8 +28,8 @@
 
 class: center, middle
 
-# Hi-C Data Analysis Bootcamp
-## HiC Boot Camp 2018, Boston, MA
+# Hi-C Data Analysis Bootcamp 2018
+## Harvard Medical School, Boston, MA
 
 #### Soo Lee, Nezar Abdennur, Peter Kerpedjiev, Fritz Lekschas
 
@@ -63,7 +63,7 @@ Hi-C data processing pipeline
 
 2. Filtering / sorting / Creating a list of contacts
   * Tools: `pairsamtools`, `pairix`
-  * outputs: `pairs`, `bam` files
+  * outputs: `pairs`, `bam`, `pairsam` files
 
 3. Binning
   * Tools: `cooler`
@@ -72,20 +72,19 @@ Hi-C data processing pipeline
 4. Normalization
   * Tools: `cooler`
   * outputs: `cool` file
+      
+5. Aggregation
+  * Tools: `cooler`
+  * outputs: `multires.cool` (`mcool`) file
 
 
 ---
 
 # Run docker
 
-
-* create a data directory
-```
-mkdir -p data
-```
-&nbsp;
-
 * pull docker image and create a container with bash entry point
+* Mout the `~/data` directory as `/d/` inside the container using the `-v` option
+
 ```
 docker run -it -v ~/data:/d/:rw duplexa/4dn-hic:v42 bash
 ```
@@ -94,39 +93,39 @@ docker run -it -v ~/data:/d/:rw duplexa/4dn-hic:v42 bash
 * cd into the data directory
 ```
 cd /d/
+ls
 ```
 
 ---
 
-# Download Data
+# Ingredients
 
-* FASTQ input data : 
+* input Hi-C data in the FASTQ format: 
 ```
-  wget -O input_R1.fastq.gz https://goo.gl/VYdHX9
-  wget -O input_R2.fastq.gz https://goo.gl/wPDXV3
-  gunzip input_R1.fastq.gz
-  gunzip input_R2.fastq.gz
+input_R1.fastq
+input_R2.fastq
 ```
 
-* bwaIndex
+* bwaIndex (hg38) - reference genome formatted for bwa
 ```
-wget -O hg38.bwaIndex.tgz https://goo.gl/SU61DB 
-tar -xzf hg38.bwaIndex.tgz
+GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta*
 ```
 
-* chrom size
+* chrom size (hg38) - text file listing the chromosomes and their sizes
 ```
-wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV 
+hg38.mainonly.chrom.size
 ```
 
 ---
 
-# Output files can also be downloaded
-
-  * wget -O output.bam http://goo.gl/SZAbFS
-  * wget -O output.pairs.gz http://goo.gl/Dmh5gn
-  * wget -O output.cool http://goo.gl/z5YNrd
-
+# Output files
+* they will be generated through this session, but they can be found in the data directory as well.
+```
+output.bam
+output.pairs.gz
+output.cool
+```
+      
 ---
 
 # Alignment!
