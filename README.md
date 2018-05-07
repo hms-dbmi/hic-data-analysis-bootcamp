@@ -85,19 +85,19 @@ Soo Lee is a Senior Bioinformatics Scientist in the Department of Biomedical Inf
 
 ### Nezar Abdennur
 
-Nezar Abdennur is a PhD candidate in Computational and Systems Biology at MIT. His research focuses on the determinants of 3D genome organization and the development of tools for dealing with large Hi-C datasets. Twitter: [nv1ctus](https://twitter.com/nv1ctus) Web: [nvictus.me](http://nvictus.me)
+Nezar Abdennur is a PhD candidate in Computational and Systems Biology at MIT. His research focuses on the determinants of 3D genome organization and the development of tools for dealing with large Hi-C datasets. Twitter: [@nv1ctus](https://twitter.com/nv1ctus) Web: [nvictus.me](http://nvictus.me)
 
 ### Peter Kerpedjiev
 
-Peter Kerpedjiev is a postdoctoral researcher working on creating tools (such as HiGlass) for visualizing large genomic data sets. Twitter: [pkerpedjiev](https://twitter.com/pkerpedjiev) Web: [emptypipes.org](http://emptypipes.org)
+Peter Kerpedjiev is a postdoctoral researcher working on creating tools (such as HiGlass) for visualizing large genomic data sets. Twitter: [@pkerpedjiev](https://twitter.com/pkerpedjiev) Web: [emptypipes.org](http://emptypipes.org)
 
 ### Fritz Lekschas
 
-Fritz is a PhD student working on biomedical information visualization with focus on large multiscale genomic data sets. Twitter: [flekschas](https://twitter.com/flekschas) Web: [lekschas.de](https://lekschas.de)
+Fritz is a PhD student working on biomedical information visualization with focus on large multiscale genomic data sets. Twitter: [@flekschas](https://twitter.com/flekschas) Web: [lekschas.de](https://lekschas.de)
 
 ### Leonid Mirny
 
-Leonid Mirny is a professor at MIT's Institute for Medical Engineering & Science. His lab studies the three dimensional organization of chromosomes using a combination of computational analysis and simulation. Web site: http://mirnylab.mit.edu/
+Leonid Mirny is a professor at MIT's Institute for Medical Engineering & Science. His lab studies the three dimensional organization of chromosomes using a combination of computational analysis and simulation. Twitter: [@leonidmirny](https://twitter.com/leonidmirny) Web: [mirnylab.mit.edu](http://mirnylab.mit.edu/)
 
 
 ## Resources
