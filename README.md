@@ -15,7 +15,7 @@
 * [Fritz Lekschas](https://lekschas.de/) PhD Student, Harvard University
 * [Leonid Mirny](http://mirnylab.mit.edu/) Professor, MIT
 
-## Oragnizers
+## Organizers
 
 * Burak Alver, Scientific Project Manager, Harvard Medical School
 * [Nils Gehlenborg](http://gehlenborglab.org/), Assistant Professor, Harvard Medical School
