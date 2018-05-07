@@ -1,4 +1,4 @@
-# ISMB Tutorial: 3D Genome Data Processing, Analysis, and Visualization Tutorial
+# Hi-C Data Analysis Bootcamp
 
 ## Files in this repository
 
@@ -42,8 +42,6 @@ After the workshop participants should be able to obtain, process, analyze, and 
 The subject matter and practical exercises presented in this tutorial will be accessible to a broad audience. Prior experience with next generation sequencing and the data it produces will be helpful for understanding the subsequent processing steps used to derive contact maps as well as some of the artifacts that can arise during data processing.
 
 The material will be most useful to computational biologists and biologists working on genomics-related topics. 
-Tentative Schedu
-
 
 ## Student Requirements:
 
@@ -57,116 +55,42 @@ Tentative Schedu
   
 ## Agenda
 
-**10:00 - 10:25 - Introduction and Overview**
-
-* Who are we? [5 minutes]
-* What we’ll cover [5 minutes]
-* AWS accounts and ssh in [10 minutes]
-
-**10:25 - 11:30 Hi-C Analysis**
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Intro to Hi-C [Nezar]**
-
-* 15 minutes:
-  * Introduction
-    * Protocol
-    * What Hi-C sees
-    * Levels of genome organization inferred from patterns
-      * Checkering: compartments
-      * Enriched squares without checkering: TADs
-      * Corner peaks: loops
-    * How Hi-C is processed
-    * How features are assessed
-  * Hi-C processing steps (informational)
-    * Mapping
-    * Filtering
-    * Creating a list of contacts
-    * Binning
-    * Normalization
-    * Feature analysis
-      * scaling
-      * compartments
-      * TADs
-    * QC
-
-* 45min
-  * Practical - processing pipeline [Soo]: 
-    * Mapping
-      * bwa mem -SP5M index fastq1 fastq2 | samtools view -bhS - > output.bam
-      * samtools view output.bam | head -n 5
-      * output: bam file
-    * Filtering / sorting / Creating a list of contacts
-      * pairsamtools
-      * outputs: pairs, bam
-      * Pairs / pairix (indexes the pairs file)
-    * Binning
-      * Cooler / cool
-    * Normalization
-      * Cooler / cool
-    * map a small Hi-C dataset using distiller (https://github.com/mirnylab/distiller) and generate contact matrices using cooler (https://github.com/mirnylab/cooler)
-  * Practical - Feature analysis [Nezar]: 
-    * Jupyter notebook cooler walkthrough
-    * Cis vs trans and scaling (contact probability vs genomic distance)
-    * Compartment profile, saddle plots
-    * Insulation, TADs
-    * Pileups
-
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**11:30 - 11:45 Coffee Break**
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**11:45 - 12:55 Visualization**
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Existing tools for contact matrix exploration**
-
-* 20 minutes [Nils]: 
-  * 3D genome browser	
-  * WashU epigenome browser
-  * Juicebox
-  * HiGlass 
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Using HiGlass (http://higlass.io) to display contact maps [Peter]**
-
-* 30 minutes: 
-  * Overview of common operations such as adding tracks, removing tracks, adding views, removing view, linking views by zoom and location
-  * Practical: 
-    * Create an interactive version of a figure
-* 20 minutes: Installing HiGlass
-  * Overview of the HiGlass architecture and description of the infrastructure used to run it
-  * Practical: 
-    * Create a local HiGlass instance
-    * Convert a contact map to multi-resolution format and import it
-    * Convert a bigWig file to hitile format and import it
-    * Open both files in the client and navigate to an interesting location
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**12:55 - 1:30 - Data Analysis for Nuclear Compartmentalization [Jian Ma]**
-
-* Introduction
-* DamID analysis
-* Repli-seq analysis
-* Data from emerging technologies
+* **09:00 - 09:10 Introduction and Overview (Peter Park and Burak Alver, Harvard)**
+* **09:10 - 09:30 Hi-C Protocol (Johan Gibcus, UMass)**
+* **10:30 - 10:45 Break**
+* **10:45 - 12:15 From fastqs to contact matrices (Soohyun Lee, Harvard)**
+* **12:15 - 13:00 Lunch**
+* **13:00 - 14:00 From contact matrices to biology (Nezar Abdennur, MIT)**
+* **14:00 - 15:00 Hi-C Data Visualization - HiGlass (Peter Kerpedjiev, Harvard)**
+* **15:00 - 15:15 Break** 
+* **15:15 - 16:00 Hi-C Data Visualization - HiPiler (Fritz Lekschas, Harvard)**
+* **16:00 - 17:00 Keynote Speaker - Leonid Mirny, MIT**
 
 
 ## Instructor Bios
 
+### Johan Gibcus
+
 ### Nezar Abdennur
 
-Nezar is a PhD candidate in Computational and Systems Biology at MIT. His research focuses on the determinants of 3D genome organization and the development of tools for dealing with large Hi-C datasets. http://nvictus.me
+Nezar Abdennur is a PhD candidate in Computational and Systems Biology at MIT. His research focuses on the determinants of 3D genome organization and the development of tools for dealing with large Hi-C datasets. http://nvictus.me
 
 ### Soo Lee
 
 Soo Lee is a Senior Bioinformatics Scientist in the Department of Biomedical Informatics at Harvard Medical School. She is creating cloud-based pipelines for Hi-C and other genomic data and developing infrastructure for automation of such pipelines as part of the 4D Nucleome Data Coordination and Integration Center. https://compbio.hms.harvard.edu/people/soohyun-lee
 
-### Nils Gehlenborg
-
-Nils is an Assistant Professor in the Department of Biomedical Informatics at Harvard Medical School. His research group is developing tools to visualize 3D genome conformation data as well as heterogeneous data from large-scale cancer genomics studies. http://gehlenborglab.org 
 
 ### Peter Kerpedjiev
 
-Peter is a postdoctoral researcher working on creating tools (such as HiGlass) for visualizing large genomic data sets. Web site: http://emptypipes.org/about
+Peter Kerpedjiev is a postdoctoral researcher working on creating tools (such as HiGlass) for visualizing large genomic data sets. Web site: http://emptypipes.org/about
 
-### Jian Ma
+### Fritz Lekschas
 
-Jian Ma is an Associate Professor in the School of Computer Science at Carnegie Mellon University. The research in his group focuses on developing algorithms to better understand genome structure and function. http://www.cs.cmu.edu/~jianma/
+Fritz Lekschas is a PhD student at Harvard's Jon A. Paulson School of Engineering and Applied Sciences (SEAS). His research focuses on the visualization, exploration and annotation of large multi-scale datasets. Web site: http://leskchas.de
+
+### Leonid Mirny
+
+Leonid Mirny is a professor at MIT's Institute for Medical Engineering & Science. His lab studies the three dimensional organization of chromosomes using a combination of computational analysis and simulation. Web site: http://mirnylab.mit.edu/
 
 
 ## Resources
