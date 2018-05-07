@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>3D Genome Data Procesing, Analysis, and Visualization</title>
+    <title>Hi-C Data Analysis Bootcamp</title>
     <meta charset="utf-8">
     <style>
       @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
@@ -584,6 +584,38 @@ Re-create this figure:
 <p style="text-align: center">
     <img src="https://cloud.githubusercontent.com/assets/2143629/24535688/a6043f1a-15a3-11e7-8197-d5d3ce227bc6.png" height=400/>
 </p>
+
+---
+
+# Creating a local instance
+
+Start a HiGlass instance and expose it to the outside world using the `--site-url` parameter.
+
+```
+higlass-manage start --site-url $PUBLIC_IP
+```
+
+---
+
+# Creating a local instance
+
+Start a HiGlass instance and expose it to the outside world using the `--site-url` parameter.
+
+```
+higlass-manage start --site-url $PUBLIC_IP
+```
+
+## Add data
+
+```
+higlass-manage ingest ~/data/Schwarzer-et-al-2017-UNTR.multi.cool
+
+higlass-manage ingest ~/data/Schwarzer-et-al-2017-NIPBL.multi.cool
+
+higlass-manage ingest ~/data/Schwarzer-et-al-2017-RNAseq-minus.bw
+```
+
+
 
 ---
 
