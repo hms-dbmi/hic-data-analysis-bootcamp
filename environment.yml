@@ -18,6 +18,7 @@ dependencies:
     - ipython
     - jupyter
     - ipywidgets
+    - gcc
     - parallel
     - pbgzip
     - samtools>=1.4
@@ -31,11 +32,11 @@ dependencies:
     - pip:
         - git+https://github.com/mirnylab/pairsamtools
         - git+https://github.com/mirnylab/cooltools
-        - https://github.com/nvictus/pybbi.git
-        - https://github.com/nvictus/lavaburst.git
+        - git+https://github.com/nvictus/pybbi.git
+        - git+https://github.com/nvictus/lavaburst.git
         - hg+https://bitbucket.org/mirnylab/mirnylib
         - hg+https://bitbucket.org/mirnylab/hiclib
-	- bioframe
+        - bioframe
         - cooler
         - multiprocess
         - awscli
