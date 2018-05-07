@@ -78,9 +78,8 @@ Hi-C data processing pipeline
 
 # Run docker
 
-* pull docker image and create a container with bash entry point
+* Create a Docker container from image `duplexa/4dn-hic:v42`, with a bash entry point
 * Mout the `~/data` directory as `/d/` inside the container using the `-v` option
-
 ```
 docker run -it -v ~/data:/d/:rw duplexa/4dn-hic:v42 bash
 ```
@@ -89,7 +88,6 @@ docker run -it -v ~/data:/d/:rw duplexa/4dn-hic:v42 bash
 * cd into the data directory
 ```
 cd /d/
-ls
 ```
 
 ---
