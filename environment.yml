@@ -24,6 +24,10 @@ dependencies:
     - sra-tools>=2.8.1
     - fastqc
     - bwa
+    - ucsc-bigwigtobedgraph
+    - ucsc-bedgraphtobigwig
+    - ucsc-fetchchromsizes
+    - bedtools
     - biopython
     - pyfaidx
     - pysam
@@ -31,11 +35,10 @@ dependencies:
     - pip:
         - git+https://github.com/mirnylab/pairsamtools
         - git+https://github.com/mirnylab/cooltools
-        - git+https://github.com/nvictus/pybbi.git
-        - git+https://github.com/nvictus/lavaburst.git
+        - https://github.com/nvictus/pybbi.git
+        - https://github.com/nvictus/lavaburst.git
         - bioframe
         - cooler
         - multiprocess
         - awscli
         - s3fs
-
