@@ -214,6 +214,7 @@ output.prebaked.cool
 
   * input: `bam` file
   * output: `bam`, `pairs` file
+  * intermediate: `pairsam` file
 
 ---
 
@@ -228,7 +229,7 @@ output.prebaked.cool
 
   * input: `bam` file
   * output: `bam`, `pairs` file
-
+  * intermediate: `pairsam` file
 
 ---
 # Filtering!
@@ -245,12 +246,13 @@ output.prebaked.cool
     * Commands
     ```bash
     samtools view -h output.bam | pairsamtools parse -c hg38.mainonly.chrom.size --output parsed.pairsam.gz
-    pairsamtools sort --nproc 4 --output sorted.pairsam.gz parsed.pairsam.gz
+    pairsamtools sort --nproc 8 --output sorted.pairsam.gz parsed.pairsam.gz
     ```
 
   * input: `bam` file
   * output: `bam`, `pairs` file
-
+  * intermediate: `pairsam` file
+      
 ---
 # Filtering!
 
@@ -260,22 +262,23 @@ output.prebaked.cool
   * Dedup / Select / Split
     * Usage
     ```bash
-    pairsamtools dedup --mark-dups --output deduped.sam.pairs.gz sorted.sam.pairs.gz
+    pairsamtools dedup --mark-dups --output <deduped_pairsam> <sorted_pairsam>
     pairsamtools select '(pair_type == "UU") or (pair_type == "UR") or (pair_type == "RU")' \
-        --output filtered.sam.pairs.gz deduped.sam.pairs.gz 
-    pairsamtools split --output-pairs output.pairs.gz filtered.sam.pairs.gz
+        --output <filtered_pairsam> <deduped_pairsam> 
+    pairsamtools split --output-pairs <output_pairs> <filtered_pairsam>
     ```
     * Commands
     ```bash
-    pairsamtools dedup --mark-dups --output deduped.sam.pairs.gz sorted.sam.pairs.gz
+    pairsamtools dedup --mark-dups --output deduped.pairsam.gz sorted.pairsam.gz
     pairsamtools select '(pair_type == "UU") or (pair_type == "UR") or (pair_type == "RU")' \
-        --output filtered.sam.pairs.gz deduped.sam.pairs.gz 
-    pairsamtools split --output-pairs output.pairs.gz filtered.sam.pairs.gz
+        --output filtered.pairsam.gz deduped.pairsam.gz 
+    pairsamtools split --output-pairs output.pairs.gz filtered.pairsam.gz
     ```  
 
   * input: `bam` file
   * output: `bam`, `pairs` file
-
+  * intermediate: `pairsam` file
+      
 ---
 
 
