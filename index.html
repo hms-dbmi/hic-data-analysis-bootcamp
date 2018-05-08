@@ -36,14 +36,26 @@ class: center, middle
 ---
 
 # WiFi
+
+&nbsp;
+      
 * Name: HMS Public
       
 ```
 Open a browser, type an address (e.g google.com),
 then the HMS wifi page will be open instead.
-Scroll down to the bottom of thw page,
+Scroll down to the bottom of the page,
 click the button to agree on terms and condition.
 ```
+      
+## Repository
+      
+https://github.com/hms-dbmi/hic-data-analysis-bootcamp
+      
+## slides
+      
+https://hms-dbmi.github.io/hic-data-analysis-bootcamp/#1
+    
 
 ---
 
@@ -57,11 +69,14 @@ ssh <username>@<aws_public_ip>
   * username: ec2-user
   * passwd: bootcamp0508
 
+&nbsp;
+      
 ```bash
 ls
 ```
 
-```
+      
+```bash
 anaconda3  certs  data  hic-data-analysis-bootcamp  jupyter_notebooks  pandoc-1.19.1  R
 ```
 
@@ -142,7 +157,11 @@ input_R2.fastq
       
 * bwaIndex (hg38) - reference genome formatted for bwa
 ```
-hg38.fasta*
+hg38.fasta.amb
+hg38.fasta.ann
+hg38.fasta.bwt
+hg38.fasta.pac
+hg38.fasta.sa
 ```
 &nbsp;
       
@@ -151,8 +170,51 @@ hg38.fasta*
 hg38.mainonly.chrom.size
 ```
 
+      
 ---
 
+
+# Check input files
+
+  
+```   
+head data/input_R1.fastq 
+```
+      
+``` 
+@1
+GATCACACCACTGCACTCCAGCCTGGGCGACAGAGCAAGACTCTATCTCAAAAAAAAAAAAAAAAATCAAGAAATAATGGCTGAAAATTTCCAAAATTTG
++1
+AABBBFFFB@BFGGGFFGGGFGGHHHCGCGGGGHFBGCFFGFFFHHHHHGHGBEE0EEE/EEEEEE03?F33BF4BEB22?2/B2BFD22FFDFGHFCG2
+@2
+CATCAGAAGGATGGATCCCTTGTGCTACCCATTTTATAGTCACAAACACGTTCCTCACTCCCTGACCCCTGGCAACCACTAATGGGTTTTTCATCTCTGT
++2
+CCCCCFFFFFFFGGGGGGGGGGHHHHHHHHHHHHHHHHHHHGHHHHHHHGHHHHHHHGHHHHHHHHHHGGGHHHHHHGGHHEGHHGFFGGGHHHHHHHHE
+@3
+CTTTTTTTTGTAAAATGAGAAAGCTGGATGAAAGGATCTCTAAGGTCCCTTCACCTTTGAAATCTGATAACTCTAAGGTTTAATTTCCTCATCTGTCAAA
+```
+&nbsp;
+      
+```
+head data/hg38.mainonly.chrom.size
+```
+``` 
+chr1	248956422
+chr2	242193529
+chr3	198295559
+chr4	190214555
+chr5	181538259
+chr6	170805979
+chr7	159345973
+chr8	145138636
+chr9	138394717
+chr10	133797422
+```
+      
+      
+---
+
+      
 # Output files
 * they will be generated through this session.
 ```
@@ -162,6 +224,8 @@ output.pairs.gz, output.pairs.gz.px2
 output.cool
 output.mcool
 ```
+&nbsp;
+  
 * In case you could not generate an output file, but move on to the next step, use our prebaked output files.
 ```
 output.prebaked.bam
@@ -274,6 +338,7 @@ output.prebaked.mcool
   * Parse / sort
 
     * Usage
+
     ```bash
     samtools view -h <input_bam> | \
        pairsamtools parse -c <chromsize> -o <parsed_pairsam>
@@ -281,16 +346,30 @@ output.prebaked.mcool
     ```
 
     * Commands
+
     ```bash
     samtools view -h output.bam | \
        pairsamtools parse -c hg38.mainonly.chrom.size -o parsed.pairsam.gz
     pairsamtools sort --nproc 8 -o sorted.pairsam.gz parsed.pairsam.gz
       
-    gunzip -c sorted.pairsam.gz |less -S  # check your output file!
+    gunzip -c parsed.pairsam.gz |less -S  # check your output file!
     ```
   * input: `bam` file
   * output: `pairsam` file
   * intermediate: `pairsam` file
+ 
+      
+---
+# Filtering!
+
+  * Tools : 
+    * `pairsamtools` (https://github.com/mirnylab/pairsamtools) : filtering
+      
+      &nbsp;
+      
+        <p style="text-align: center">
+         <img src="https://s3.amazonaws.com/pkerp/public/img/hic-bootcamp-presentation/pairsam_screen.png" width="700" />
+        </p>    
       
 ---
 # Filtering!
@@ -335,6 +414,7 @@ output.prebaked.mcool
   * Commands
 
     ```bash
+    bgzip output.pairs  # (if not gzipped)
     pairix -f output.pairs.gz  # indexing 
     pairix output.pairs.gz 'chr2:1-60000000|chr4:5000000-6000000' # querying
     ```
@@ -350,7 +430,7 @@ output.prebaked.mcool
 
 ---
 
-# Binning!
+# Binning! (Generating a matrix)
 
   * Tools:
     * `cooler` (https://github.com/mirnylab/cooler)
@@ -422,19 +502,24 @@ output.prebaked.mcool
     ```bash
     cooler zoomify output.cool
     ```
+
   * input : `cool` file
   * output : `mcool` file
 
----   
+      
+---
+
       
 # Hi-C pipeline on 4DN Data Portal
 
   * A modular Hi-C mapping pipeline for reproducible data analysis.
   * https://data.4dnucleome.org/files-processed/4DNFIC2XS1Y3/
   * https://github.com/4dn-dcic/docker-4dn-hic
+  
       
 ---
 
+      
 # Visualization
 
 To explore the features of a matrix, it helps to be able to see the data. Example with HiGlass:
@@ -478,6 +563,17 @@ online (<a href="http://higlass.io/" >http://higlass.io</a>), or run locally wit
 
 <h3>
 </h3>
+
+---
+
+# HiGlass Architecture
+
+HiGlass uses a client-server achitecture to allow users to view large contact
+matrices in a web browser.
+
+<p style="text-align: center">
+    <img src="img/higlass-architecture.png" width=400 />
+</p>
 
 ---
 
@@ -923,8 +1019,33 @@ we're showing the extent of the bottom views on the top.
 
 
 <p style="text-align: center">
-    <video width="600" loop="loop" autoplay="autoplay">
+    <video width="500" loop="loop" autoplay="autoplay">
         <source src="https://s3.amazonaws.com/pkerp/public/img/hic-bootcamp-presentation/project-viewport-on.mp4" type="video/mp4">
+    </video>
+</p>
+
+---
+
+# Change the color scale
+
+We can change the bounds of the color scale to better see features.
+
+<p style="text-align: center">
+    <video width="500" loop="loop" autoplay="autoplay">
+        <source src="https://s3.amazonaws.com/pkerp/public/img/hic-bootcamp-presentation/change-color-scale.mp4" type="video/mp4">
+    </video>
+</p>
+
+---
+
+
+# Lock the value scale
+
+Ensure that the color scales of views change in sync.
+
+<p style="text-align: center">
+    <video width="500" loop="loop" autoplay="autoplay">
+        <source src="https://s3.amazonaws.com/pkerp/public/img/hic-bootcamp-presentation/lock-value-scales.mp4" type="video/mp4">
     </video>
 </p>
 
@@ -935,10 +1056,12 @@ we're showing the extent of the bottom views on the top.
 Finally, we can export our completed figure as a link:
 
 <p style="text-align: center">
-    <video width="600" loop="loop" autoplay="autoplay">
+    <video width="500" loop="loop" autoplay="autoplay">
         <source src="https://s3.amazonaws.com/pkerp/public/img/hic-bootcamp-presentation/export-views-as-link.mp4" type="video/mp4">
     </video>
 </p>
+
+[http://higlass.io/app/?config=Tf2-ublRTey9hiBKMlgzwg](http://higlass.io/app/?config=Tf2-ublRTey9hiBKMlgzwg)
 
 ---
 
