@@ -139,3 +139,6 @@ Leonid Mirny is a professor at MIT's Institute for Medical Engineering & Science
 * Lajoie, Bryan R., Job Dekker, and Noam Kaplan. "The Hitchhiker’s guide to Hi-C analysis: practical guidelines." Methods 72 (2015): 65-75. doi:[10.1016/j.ymeth.2014.10.031](https://doi.org/10.1016/j.ymeth.2014.10.031)
 * Kerpedjiev, Peter, et al. "HiGlass: Web-based Visual Comparison And Exploration Of Genome Interaction Maps" bioRxiv. doi:[10.1101/121889](https://doi.org/10.1101/121889)
 * Lekschas, Fritz et al. "HiPiler: Visual Exploration Of Large Genome Interaction Matrices With Interactive Small Multiples" IEEE Transactions on Visualization and Computer Graphics, 24(1), 522-531. [doi:10.1109/TVCG.2017.2745978](https://doi.org/10.1109/TVCG.2017.2745978)
+* Belaghzal H, et al. "Hi-C 2.0: An optimized Hi-C procedure for high-resolution genome-wide mapping of chromosome conformation." Methods. 2017
+* Golloshi R, et al. "Iteratively improving Hi-C experiments one step at a time." Methods. 2018
+* Oddes, Sivan, et al. "Three invariant Hi-C interaction patterns: applications to genome assembly". bioRxiv 306076
