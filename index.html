@@ -349,11 +349,21 @@ output.prebaked.mcool
        pairsamtools parse -c hg38.mainonly.chrom.size -o parsed.pairsam.gz
     pairsamtools sort --nproc 8 -o sorted.pairsam.gz parsed.pairsam.gz
       
-    gunzip -c sorted.pairsam.gz |less -S  # check your output file!
+    gunzip -c parsed.pairsam.gz |less -S  # check your output file!
     ```
   * input: `bam` file
   * output: `pairsam` file
   * intermediate: `pairsam` file
+ 
+      
+---
+# Filtering!
+
+  * Tools : 
+    * `pairsamtools` (https://github.com/mirnylab/pairsamtools) : filtering
+        <p style="text-align: center">
+         <img src="img/pairsam_screen.png" width="600" />
+        </p>    
       
 ---
 # Filtering!
