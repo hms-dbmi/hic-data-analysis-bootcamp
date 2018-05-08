@@ -25,7 +25,7 @@ dependencies:
     - fastqc
     - bwa
     - ucsc-bigwigtobedgraph
-    - ucsc-beggraphtobigwig
+    - ucsc-bedgraphtobigwig
     - ucsc-fetchchromsizes
     - bedtools
     - biopython
