@@ -288,7 +288,7 @@ output.prebaked.cool
     pairsamtools dedup --mark-dups -o deduped.pairsam.gz sorted.pairsam.gz
     pairsamtools select \
       '(pair_type == "UU") or (pair_type == "UR") or (pair_type == "RU")' \
-      -ot filtered.pairsam.gz deduped.pairsam.gz 
+      -o filtered.pairsam.gz deduped.pairsam.gz 
     pairsamtools split --output-pairs output.pairs.gz filtered.pairsam.gz
     ```  
   * input: `pairsam` file
