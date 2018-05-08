@@ -253,12 +253,14 @@ output.prebaked.cool
   * Parse / sort
     Usage
     ```bash
-    samtools view -h <input_bam_file> | pairsamtools parse -c <chromsize_file> --output <parsed_pairsam>
+    samtools view -h <input_bam> | \
+       pairsamtools parse -c <chromsize> --output <parsed_pairsam>
     pairsamtools sort --nproc 8 --output <sorted_pairsam> <parsed_pairsam>
     ```
     Commands
     ```bash
-    samtools view -h output.bam | pairsamtools parse -c hg38.mainonly.chrom.size --output parsed.pairsam.gz
+    samtools view -h output.bam | \
+       pairsamtools parse -c hg38.mainonly.chrom.size --output parsed.pairsam.gz
     pairsamtools sort --nproc 8 --output sorted.pairsam.gz parsed.pairsam.gz
       
     gunzip -c sorted.pairsam.gz |less -S  # check your output file!
