@@ -2,14 +2,14 @@
 
 > Assessing, analyzing, and visualizing the 3D genome.
 
-![Funky Colromaps](/teaser.jpg?raw=true "Some funky colormaps")
+![Funky Colormaps](/teaser.jpg?raw=true "Some funky colormaps")
 
 ## Files in this repository
 
 * **Tutorial Part 1 (Hi-C Protocol)**: [https://github.com/hms-dbmi/hic-data-analysis-bootcamp/blob/master/HiC-Protocol.pptx](https://github.com/hms-dbmi/hic-data-analysis-bootcamp/blob/master/HiC-Protocol.pptx)
 * **Tutorial Part 2 (From fastqs to contact matrices)**: [https://hms-dbmi.github.io/hic-data-analysis-bootcamp/](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/)
 * **Tutorial Part 3 (From contact matrices to biology)**: ???
-* **Tutorial Part 4 (Hi-C Data Visualization - HiGlass)**: [https://hms-dbmi.github.io/hic-data-analysis-bootcamp/](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/)
+* **Tutorial Part 4 (Hi-C Data Visualization - HiGlass)**: [https://hms-dbmi.github.io/hic-data-analysis-bootcamp/#24](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/#24)
 * **Tutorial Part 5 (Hi-C Data Visualization - HiPiler)**: [hipiler.pdf](./hipiler.pdf)
 
 ## Presenters
@@ -49,7 +49,7 @@ The subject matter and practical exercises presented in this tutorial will be ac
 
 The material will be most useful to computational biologists and biologists working on genomics-related topics.
 
-## Student Requirements:
+## Student Requirements
 
 * Install Docker
   * https://www.docker.com/community-edition
@@ -63,7 +63,7 @@ The material will be most useful to computational biologists and biologists work
 
 **09:00 - 09:10** Introduction and Overview (Peter Park and Burak Alver, Harvard)
 
-**09:10 - 09:30** Hi-C Protocol (Johan Gibcus, UMass)
+**09:10 - 10:30** Hi-C Protocol (Johan Gibcus, UMass)
 
 **10:30 - 10:45** _Break_
 
@@ -111,7 +111,7 @@ Leonid Mirny is a professor at MIT's Institute for Medical Engineering & Science
 
 ## Resources
 
-**Software:**
+### Software
 
 * [bwa](https://github.com/lh3/bwa) and [SAM spec](https://samtools.github.io/hts-specs/SAMv1.pdf)
 * [pairsamtools](https://github.com/mirnylab/pairsamtools)
@@ -121,19 +121,18 @@ Leonid Mirny is a professor at MIT's Institute for Medical Engineering & Science
 * [HiPiler](http://hipiler.lekschas.de) and [source code](https://github.com/flekschas/hipiler) and [docs](https://github.com/flekschas/hipiler/wiki)
 
 
-**Bioinformatics workflow managers:**
+### Bioinformatics workflow managers
 
 * [snakemake](https://snakemake.readthedocs.io/en/stable/)
 * [nextflow](https://www.nextflow.io/)
 
 
-**Package and environment management:**
+### Package and environment management
 
 * [conda](https://conda.io/miniconda.html)
 * [bioconda](https://bioconda.github.io/)
 
-
-**Papers:**
+### Papers
 
 * Imakaev, Maxim, et al. "Iterative correction of Hi-C data reveals hallmarks of chromosome organization." Nature methods 9.10 (2012): 999-1003. doi:[10.1038/nmeth.2148](https://doi.org/10.1038/nmeth.2148)
 * Lajoie, Bryan R., Job Dekker, and Noam Kaplan. "The Hitchhiker’s guide to Hi-C analysis: practical guidelines." Methods 72 (2015): 65-75. doi:[10.1016/j.ymeth.2014.10.031](https://doi.org/10.1016/j.ymeth.2014.10.031)
