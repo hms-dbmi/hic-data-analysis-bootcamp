@@ -205,23 +205,76 @@ output.prebaked.cool
   * Tools : 
     * `pairsamtools` (https://github.com/mirnylab/pairsamtools) : filtering
 
-  * Command
+  * Steps
+      * Parse : annotate reads, create a `pairsam` file
+      * Sort : sort by chromosome1-chromosome2-position1-position2
+      * Dedup : Mark PCR duplicates
+      * Select : Filter valid Hi-C reads
+      * Split : create a `pairs` or `bam` file
+
+  * input: `bam` file
+  * output: `bam`, `pairs` file
+
+---
+
+
+# Filtering!
+
+  * Tools : 
+    * `pairsamtools` (https://github.com/mirnylab/pairsamtools) : filtering
+
+  * Pair types
+      [](http://pairsamtools.readthedocs.io/en/latest/_images/terminology.png)
+
+  * input: `bam` file
+  * output: `bam`, `pairs` file
+
+
+---
+# Filtering!
+
+  * Tools : 
+    * `pairsamtools` (https://github.com/mirnylab/pairsamtools) : filtering
+
+  * Parse / sort
+    * Usage
     ```bash
-    samtools view -h <input_bam_file> | pairsamtools parse -c <chromsize_file> --output parsed.sam.pairs.gz
-      
-    pairsamtools sort --nproc 4 --output sorted.sam.pairs.gz parsed.sam.pairs.gz
-      
-    pairsamtools dedup --mark-dups --output deduped.sam.pairs.gz sorted.sam.pairs.gz
-      
-    pairsamtools select '(pair_type == "UU") or (pair_type == "UR") or (pair_type == "RU")' \
-        --output filtered.sam.pairs.gz deduped.sam.pairs.gz
-      
-    pairsamtools split --output-pairs output.pairs.gz filtered.sam.pairs.gz
+    samtools view -h <input_bam_file> | pairsamtools parse -c <chromsize_file> --output <parsed_pairsam>
+    pairsamtools sort --nproc 4 --output <sorted_pairsam> <parsed_pairsam>
+    ```
+    * Commands
+    ```bash
+    samtools view -h output.bam | pairsamtools parse -c hg38.mainonly.chrom.size --output parsed.pairsam.gz
+    pairsamtools sort --nproc 4 --output sorted.pairsam.gz parsed.pairsam.gz
     ```
 
   * input: `bam` file
   * output: `bam`, `pairs` file
 
+---
+# Filtering!
+
+  * Tools : 
+    * `pairsamtools` (https://github.com/mirnylab/pairsamtools) : filtering
+
+  * Dedup / Select / Split
+    * Usage
+    ```bash
+    pairsamtools dedup --mark-dups --output deduped.sam.pairs.gz sorted.sam.pairs.gz
+    pairsamtools select '(pair_type == "UU") or (pair_type == "UR") or (pair_type == "RU")' \
+        --output filtered.sam.pairs.gz deduped.sam.pairs.gz 
+    pairsamtools split --output-pairs output.pairs.gz filtered.sam.pairs.gz
+    ```
+    * Commands
+    ```bash
+    pairsamtools dedup --mark-dups --output deduped.sam.pairs.gz sorted.sam.pairs.gz
+    pairsamtools select '(pair_type == "UU") or (pair_type == "UR") or (pair_type == "RU")' \
+        --output filtered.sam.pairs.gz deduped.sam.pairs.gz 
+    pairsamtools split --output-pairs output.pairs.gz filtered.sam.pairs.gz
+    ```  
+
+  * input: `bam` file
+  * output: `bam`, `pairs` file
 
 ---
 
