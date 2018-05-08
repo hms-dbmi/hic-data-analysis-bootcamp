@@ -97,7 +97,7 @@ Hi-C data processing pipeline
   * Tools: `pairsamtools`, `pairix`
   * outputs: `pairs`, `bam`, `pairsam` files
 
-3. Binning && Normalization
+3. Binning & Normalization
   * Tools: `cooler`
   * outputs: `cool` file
       
@@ -137,7 +137,12 @@ output.bam
 output.pairs.gz
 output.cool
 ```
-      
+* In case you could not generate an output file, but move on to the next step, use our prebaked output files.
+```
+output.prebaked.bam
+output.prebaked.pairs.gz
+output.prebaked.cool
+```
 ---
 
 # Alignment!
@@ -148,15 +153,17 @@ output.cool
 
   * Usage
     ```bash
-    bwa mem -SP5M <index> <fastq1> <fastq2> | samtools view -bhS - > output.bam
+    bwa mem -SP5M -t8 <index> <fastq1> <fastq2> | samtools view -bhS - > <outbam>
     ```
   * input: `fastq` files, bwa genome index files
   * output: `bam` file
+  * `-SP5M` : Hi-C-specific options
   * Add `-t <ncores>` to `bwa mem` to use multiple cores (e.g. `-t 4`)
       
   * Command
     ```bash
-    bwa mem -SP5M hg38 input.R1.fastq input.R2.fastq | samtools view -bhS - > output.bam
+    bwa mem -SP5M -t8 hg38.fasta input_R1.fastq input_R2.fastq | \
+        samtools view -bhS - > output.bam
     ```
 
 ---
