@@ -138,9 +138,10 @@ hg38.mainonly.chrom.size
 ---
 
 # Output files
-* they will be generated through this session, but they can be found in the data directory as well.
+* they will be generated through this session.
 ```
 output.bam
+parsed.pairsam.gz, sorted.pairsam.gz, deduped.pairsam.gz, 
 output.pairs.gz
 output.cool
 ```
@@ -247,7 +248,7 @@ output.prebaked.cool
     * Usage
     ```bash
     samtools view -h <input_bam_file> | pairsamtools parse -c <chromsize_file> --output <parsed_pairsam>
-    pairsamtools sort --nproc 4 --output <sorted_pairsam> <parsed_pairsam>
+    pairsamtools sort --nproc 8 --output <sorted_pairsam> <parsed_pairsam>
     ```
     * Commands
     ```bash
@@ -270,15 +271,16 @@ output.prebaked.cool
     * Usage
     ```bash
     pairsamtools dedup --mark-dups --output <deduped_pairsam> <sorted_pairsam>
-    pairsamtools select '(pair_type == "UU") or (pair_type == "UR") or (pair_type == "RU")' \
+    pairsamtools select <select_condition> \
         --output <filtered_pairsam> <deduped_pairsam> 
     pairsamtools split --output-pairs <output_pairs> <filtered_pairsam>
     ```
     * Commands
     ```bash
     pairsamtools dedup --mark-dups --output deduped.pairsam.gz sorted.pairsam.gz
-    pairsamtools select '(pair_type == "UU") or (pair_type == "UR") or (pair_type == "RU")' \
-        --output filtered.pairsam.gz deduped.pairsam.gz 
+    pairsamtools select \
+      '(pair_type == "UU") or (pair_type == "UR") or (pair_type == "RU")' \
+      --output filtered.pairsam.gz deduped.pairsam.gz 
     pairsamtools split --output-pairs output.pairs.gz filtered.pairsam.gz
     ```  
   * input: `bam` file
