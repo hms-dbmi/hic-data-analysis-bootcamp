@@ -67,7 +67,15 @@ docker images
 * Create a Docker container from image `duplexa/4dn-hic:v42`, with a bash entry point
 * Mout the `~/data` directory as `/d/` inside the container using the `-v` option
 ```
+ls
+ls data
+```
+```
 docker run -it -v ~/data:/d/:rw duplexa/4dn-hic:v42 bash
+```
+```
+ls
+ls /d
 ```
 &nbsp;
 
