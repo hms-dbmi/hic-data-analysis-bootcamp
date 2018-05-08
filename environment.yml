@@ -35,8 +35,8 @@ dependencies:
     - pip:
         - git+https://github.com/mirnylab/pairsamtools
         - git+https://github.com/mirnylab/cooltools
-        - https://github.com/nvictus/pybbi.git
-        - https://github.com/nvictus/lavaburst.git
+        - git+https://github.com/nvictus/pybbi.git
+        - git+https://github.com/nvictus/lavaburst.git
         - bioframe
         - cooler
         - multiprocess

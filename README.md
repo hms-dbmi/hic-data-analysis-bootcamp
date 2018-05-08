@@ -23,7 +23,7 @@
 
 ## Organizers
 
-* Burak Alver, Scientific Project Manager, Harvard Medical School
+* [Burak Alver](https://compbio.hms.harvard.edu/people/burak-alver-0), Scientific Project Manager, Harvard Medical School
 * [Nils Gehlenborg](http://gehlenborglab.org/), Assistant Professor, Harvard Medical School
 * [Peter Park](https://compbio.hms.harvard.edu/), Professor, Harvard Medical School
 
