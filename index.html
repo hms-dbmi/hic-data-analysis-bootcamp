@@ -38,7 +38,8 @@ class: center, middle
 class: center, middle
 
 # WiFi
-**ID:** HMS Public
+* Name: HMS Public
+* Open a browser, type an address (e.g google.com), then the HMS wifi page will be open instead. Scroll down to the bottom of thw page, click the button to agree.
 
 ---
 
@@ -54,26 +55,11 @@ ssh <username>@<aws_public_ip>
 
 ---
 
-# Practice!
-Hi-C data processing pipeline
-
-1. Mapping
-  * Tools : `bwa`, `samtools`
-  * output: `bam` file
-
-2. Filtering / sorting / Creating a list of contacts
-  * Tools: `pairsamtools`, `pairix`
-  * outputs: `pairs`, `bam`, `pairsam` files
-
-3. Binning & Normalization
-  * Tools: `cooler`
-  * outputs: `cool` file
+# We're using Docker for Hi-C pipeline and Higlass! 
       
-4. Aggregation (for HiGlass)
-  * Tools: `cooler`
-  * outputs: `multires.cool` (`mcool`) file
-
-
+```
+docker images
+```
 ---
 
 # Run docker
@@ -89,6 +75,28 @@ docker run -it -v ~/data:/d/:rw duplexa/4dn-hic:v42 bash
 ```
 cd /d/
 ```
+      
+---
+
+# Practice!
+Hi-C data processing pipeline
+
+1. Mapping
+  * Tools : `bwa`, `samtools`
+  * output: `bam` file
+
+2. Filtering / sorting / Creating a list of contacts
+  * Tools: `pairsamtools`, `pairix`
+  * outputs: `pairs`, `bam`, `pairsam` files
+
+3. Binning && Normalization
+  * Tools: `cooler`
+  * outputs: `cool` file
+      
+4. Aggregation (for HiGlass)
+  * Tools: `cooler`
+  * outputs: `multires.cool` (`mcool`) file
+
 
 ---
 
@@ -103,7 +111,7 @@ input_R2.fastq
       
 * bwaIndex (hg38) - reference genome formatted for bwa
 ```
-GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta*
+hg38.fasta*
 ```
 &nbsp;
       
