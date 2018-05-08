@@ -251,6 +251,7 @@ output.prebaked.cool
     * `pairsamtools` (https://github.com/mirnylab/pairsamtools) : filtering
 
   * Parse / sort
+
     * Usage
     ```bash
     samtools view -h <input_bam> | \
@@ -278,6 +279,7 @@ output.prebaked.cool
 
   * Dedup / Select / Split
     * Usage
+
     ```bash
     pairsamtools dedup --mark-dups -o <deduped_pairsam> <sorted_pairsam>
     pairsamtools select <condition> -o <filtered_pairsam> <deduped_pairsam> 
@@ -285,6 +287,7 @@ output.prebaked.cool
     ```
       
     * Commands
+
     ```bash
     pairsamtools dedup --mark-dups -o deduped.pairsam.gz sorted.pairsam.gz
     pairsamtools select \
@@ -308,7 +311,8 @@ output.prebaked.cool
   * Tools:
     * `pairix` (https://github.com/4dn-dcic/pairix) : indexing & querying `pairs` files
 
-  * Command
+  * Commands
+
     ```bash
     pairix output.pairs.gz  # indexing 
     pairix output.pairs.gz 'chr2:1-60000000|chr4:5000000-6000000' # querying
