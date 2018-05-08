@@ -35,10 +35,15 @@ class: center, middle
 
 ---
 
-class: center, middle
-
 # WiFi
-**ID:** HMS Public
+* Name: HMS Public
+      
+```
+Open a browser, type an address (e.g google.com),
+then the HMS wifi page will be open instead.
+Scroll down to the bottom of thw page,
+click the button to agree on terms and condition.
+```
 
 ---
 
@@ -54,6 +59,47 @@ ssh <username>@<aws_public_ip>
 
 ---
 
+# Docker for Hi-C pipeline and Higlass
+      
+* List Docker images on your machine.
+      
+```bash
+docker images
+```
+      
+```bash
+REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE
+gehlenborglab/higlass   v0.2.63             1d9fe99415ac        3 weeks ago         2.7GB
+duplexa/4dn-hic         v42                 a1381e47a736        4 weeks ago         2.6GB
+hello-world             latest              1815c82652c0        10 months ago       1.84kB
+```
+      
+---
+
+# Run docker
+
+* Create a Docker container from image `duplexa/4dn-hic:v42`, with a bash entry point
+* Mout the `~/data` directory as `/d/` inside the container using the `-v` option
+```
+ls
+ls data
+```
+```
+docker run -it -v ~/data:/d/:rw duplexa/4dn-hic:v42 bash
+```
+```
+ls
+ls /d
+```
+&nbsp;
+
+* cd into the data directory
+```
+cd /d/
+```
+      
+---
+
 # Practice!
 Hi-C data processing pipeline
 
@@ -63,7 +109,8 @@ Hi-C data processing pipeline
 
 2. Filtering / sorting / Creating a list of contacts
   * Tools: `pairsamtools`, `pairix`
-  * outputs: `pairs`, `bam`, `pairsam` files
+  * outputs: `pairs` file
+  * Intermediate: `pairsam` files
 
 3. Binning & Normalization
   * Tools: `cooler`
@@ -73,22 +120,6 @@ Hi-C data processing pipeline
   * Tools: `cooler`
   * outputs: `multires.cool` (`mcool`) file
 
-
----
-
-# Run docker
-
-* Create a Docker container from image `duplexa/4dn-hic:v42`, with a bash entry point
-* Mout the `~/data` directory as `/d/` inside the container using the `-v` option
-```
-docker run -it -v ~/data:/d/:rw duplexa/4dn-hic:v42 bash
-```
-&nbsp;
-
-* cd into the data directory
-```
-cd /d/
-```
 
 ---
 
@@ -103,7 +134,7 @@ input_R2.fastq
       
 * bwaIndex (hg38) - reference genome formatted for bwa
 ```
-GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta*
+hg38.fasta*
 ```
 &nbsp;
       
@@ -115,11 +146,22 @@ hg38.mainonly.chrom.size
 ---
 
 # Output files
-* they will be generated through this session, but they can be found in the data directory as well.
+* they will be generated through this session.
 ```
 output.bam
-output.pairs.gz
+parsed.pairsam.gz, sorted.pairsam.gz, deduped.pairsam.gz, filtered.pairsam.gz
+output.pairs.gz, output.pairs.gz.px2
 output.cool
+output.mcool
+```
+* In case you could not generate an output file, but move on to the next step, use our prebaked output files.
+```
+output.prebaked.bam
+parsed.prebaked.pairsam.gz, sorted.prebaked.pairsam.gz
+deduped.prebaked.pairsam.gz, filtered.prebaked.pairsam.gz
+output.prebaked.pairs.gz, output.prebaked.pairs.gz.px2
+output.prebaked.cool
+output.prebaked.mcool   
 ```
       
 ---
@@ -132,15 +174,17 @@ output.cool
 
   * Usage
     ```bash
-    bwa mem -SP5M <index> <fastq1> <fastq2> | samtools view -bhS - > output.bam
+    bwa mem -SP5M -t8 <index> <fastq1> <fastq2> | samtools view -bhS - > <outbam>
     ```
   * input: `fastq` files, bwa genome index files
   * output: `bam` file
+  * `-SP5M` : Hi-C-specific options
   * Add `-t <ncores>` to `bwa mem` to use multiple cores (e.g. `-t 4`)
       
   * Command
     ```bash
-    bwa mem -SP5M hg38 input.R1.fastq input.R2.fastq | samtools view -bhS - > output.bam
+    bwa mem -SP5M -t8 hg38.fasta input_R1.fastq input_R2.fastq | \
+        samtools view -bhS - > output.bam
     ```
 
 ---
@@ -175,24 +219,101 @@ output.cool
   * Tools : 
     * `pairsamtools` (https://github.com/mirnylab/pairsamtools) : filtering
 
-  * Command
-    ```bash
-    samtools view -h <input_bam_file> | pairsamtools parse -c <chromsize_file> --output parsed.sam.pairs.gz
-      
-    pairsamtools sort --nproc 4 --output sorted.sam.pairs.gz parsed.sam.pairs.gz
-      
-    pairsamtools dedup --mark-dups --output deduped.sam.pairs.gz sorted.sam.pairs.gz
-      
-    pairsamtools select '(pair_type == "UU") or (pair_type == "UR") or (pair_type == "RU")' \
-        --output filtered.sam.pairs.gz deduped.sam.pairs.gz
-      
-    pairsamtools split --output-pairs output.pairs.gz filtered.sam.pairs.gz
-    ```
+  * Steps
+      * Parse : annotate reads, create a `pairsam` file
+      * Sort : sort by chromosome1-chromosome2-position1-position2
+      * Dedup : Mark PCR duplicates
+      * Select : Filter valid Hi-C reads
+      * Split : create a `pairs` or `bam` file
 
   * input: `bam` file
-  * output: `bam`, `pairs` file
+  * output: `pairs` file
+  * intermediate: `pairsam` files
 
+---
 
+# Filtering!
+
+  * Tools : 
+    * `pairsamtools` (https://github.com/mirnylab/pairsamtools) : filtering
+
+  * Pair types
+      <p style="text-align: center">
+         <img src="http://pairsamtools.readthedocs.io/en/latest/_images/terminology.png" width="600" />
+      </p>
+
+---
+
+# Filtering!
+
+  * Tools : 
+    * `pairsamtools` (https://github.com/mirnylab/pairsamtools) : filtering
+
+  * Pair types
+      <p style="text-align: center">
+         <img src="http://pairsamtools.readthedocs.io/en/latest/_images/read_pair_NU_NN.png" width="600" />
+      </p>
+      <p style="text-align: center">
+         <img src="http://pairsamtools.readthedocs.io/en/latest/_images/read_pair_UR.png" width="250" />
+      </p>
+
+---
+# Filtering!
+
+  * Tools : 
+    * `pairsamtools` (https://github.com/mirnylab/pairsamtools) : filtering
+
+  * Parse / sort
+
+    * Usage
+    ```bash
+    samtools view -h <input_bam> | \
+       pairsamtools parse -c <chromsize> -o <parsed_pairsam>
+    pairsamtools sort --nproc 8 -o <sorted_pairsam> <parsed_pairsam>
+    ```
+
+    * Commands
+    ```bash
+    samtools view -h output.bam | \
+       pairsamtools parse -c hg38.mainonly.chrom.size -o parsed.pairsam.gz
+    pairsamtools sort --nproc 8 -o sorted.pairsam.gz parsed.pairsam.gz
+      
+    gunzip -c sorted.pairsam.gz |less -S  # check your output file!
+    ```
+  * input: `bam` file
+  * output: `pairsam` file
+  * intermediate: `pairsam` file
+      
+---
+# Filtering!
+
+  * Tools : 
+    * `pairsamtools` (https://github.com/mirnylab/pairsamtools) : filtering
+
+  * Dedup / Select / Split
+    * Usage
+
+    ```bash
+    pairsamtools dedup --mark-dups -o <deduped_pairsam> <sorted_pairsam>
+    pairsamtools select <condition> -o <filtered_pairsam> <deduped_pairsam> 
+    pairsamtools split --output-pairs <output_pairs> <filtered_pairsam>
+    ```
+      
+    * Commands
+
+    ```bash
+    pairsamtools dedup --mark-dups -o deduped.pairsam.gz sorted.pairsam.gz
+    pairsamtools select \
+      '(pair_type == "UU") or (pair_type == "UR") or (pair_type == "RU")' \
+      -o filtered.pairsam.gz deduped.pairsam.gz 
+    pairsamtools split --output-pairs output.pairs.gz filtered.pairsam.gz
+
+    gunzip -c  output.pairs.gz |less -S  # check output file!
+    ```  
+  * input: `pairsam` file
+  * output: `pairs` file
+  * intermediate: `pairsam` files
+      
 ---
 
 
@@ -203,9 +324,10 @@ output.cool
   * Tools:
     * `pairix` (https://github.com/4dn-dcic/pairix) : indexing & querying `pairs` files
 
-  * Command
+  * Commands
+
     ```bash
-    pairix output.pairs.gz  # indexing 
+    pairix -f output.pairs.gz  # indexing 
     pairix output.pairs.gz 'chr2:1-60000000|chr4:5000000-6000000' # querying
     ```
 
@@ -236,7 +358,7 @@ output.cool
       
   * Command
     ```bash
-    cooler cload pairix hg38.main.chrom.sizes:500000 output.pairs.gz output.cool
+    cooler cload pairix hg38.mainonly.chrom.size:500000 output.pairs.gz output.cool
     ```
  
 ---
@@ -250,7 +372,7 @@ output.cool
 
   * Command
     ```bash
-    cooler dump -t pixels --header --join -r chr19 out.cool 
+    cooler dump -t pixels --header --join -r chr19 output.cool 
     ```
 
   * Cool format : http://cooler.readthedocs.io/en/latest/datamodel.html
@@ -263,26 +385,46 @@ output.cool
   * Tools:
     * `cooler` (https://github.com/mirnylab/cooler)
 
-  * Command
+  * Usage
     ```bash
     cooler balance <cool_file>
     ```
-
+  * Command
+    ```bash
+    cooler balance output.cool
+    
+    # check output file! (w/ -b for normalized matrix)
+    cooler dump -t pixels --header --join -r chr19 -b output.cool
+    ```
   * input : `cool` file
-  
   * output : `cool` file
-
-  * To read a 'normalized' matrix, add `-b` to the `cooler dump` command.
 
 ---
 
-# Distiller 
+# Aggregation! (For HiGlass view)
+
+  * Tools:
+    * `cooler` (https://github.com/mirnylab/cooler)
+
+  * Usage
+    ```bash
+    cooler zoomify <cool_file>
+    ```
+  * Command
+    ```bash
+    cooler zoomify output.cool
+    ```
+  * input : `cool` file
+  * output : `mcool` file
+
+---   
+      
+# Hi-C pipeline on 4DN Data Portal
 
   * A modular Hi-C mapping pipeline for reproducible data analysis.
-  * Nextflow/Docker-based pipeline
-  * https://github.com/mirnylab/distiller-nf
-
-
+  * https://data.4dnucleome.org/files-processed/4DNFIC2XS1Y3/
+  * https://github.com/4dn-dcic/docker-4dn-hic
+      
 ---
 
 # Visualization
