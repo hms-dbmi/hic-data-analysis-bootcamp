@@ -388,20 +388,21 @@ output.prebaked.cool
   * Command
     ```bash
     cooler balance output.cool
+    
+    # check output file! (w/ -b for normalized matrix)
+    cooler dump -t pixels --header --join -r chr19 -b output.cool
     ```
   * input : `cool` file
   * output : `cool` file
-  * To read a 'normalized' matrix, add `-b` to the `cooler dump` command.
 
 ---
 
-# Distiller 
+# Hi-C pipeline on 4DN Data Portal
 
   * A modular Hi-C mapping pipeline for reproducible data analysis.
-  * Nextflow/Docker-based pipeline
-  * https://github.com/mirnylab/distiller-nf
-
-
+  * https://data.4dnucleome.org/files-processed/4DNFIC2XS1Y3/
+  * https://github.com/4dn-dcic/docker-4dn-hic
+      
 ---
 
 # Visualization
