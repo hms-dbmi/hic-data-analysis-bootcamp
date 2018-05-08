@@ -282,6 +282,7 @@ output.prebaked.mcool
   * Parse / sort
 
     * Usage
+
     ```bash
     samtools view -h <input_bam> | \
        pairsamtools parse -c <chromsize> -o <parsed_pairsam>
@@ -289,6 +290,7 @@ output.prebaked.mcool
     ```
 
     * Commands
+
     ```bash
     samtools view -h output.bam | \
        pairsamtools parse -c hg38.mainonly.chrom.size -o parsed.pairsam.gz
