@@ -368,7 +368,7 @@ output.prebaked.cool
 
   * Command
     ```bash
-    cooler dump -t pixels --header --join -r chr19 out.cool 
+    cooler dump -t pixels --header --join -r chr19 output.cool 
     ```
 
   * Cool format : http://cooler.readthedocs.io/en/latest/datamodel.html
@@ -381,15 +381,16 @@ output.prebaked.cool
   * Tools:
     * `cooler` (https://github.com/mirnylab/cooler)
 
-  * Command
+  * Usage
     ```bash
     cooler balance <cool_file>
     ```
-
+  * Command
+    ```bash
+    cooler balance output.cool
+    ```
   * input : `cool` file
-  
   * output : `cool` file
-
   * To read a 'normalized' matrix, add `-b` to the `cooler dump` command.
 
 ---
