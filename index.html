@@ -254,14 +254,14 @@ output.prebaked.cool
     Usage
     ```bash
     samtools view -h <input_bam> | \
-       pairsamtools parse -c <chromsize> --output <parsed_pairsam>
-    pairsamtools sort --nproc 8 --output <sorted_pairsam> <parsed_pairsam>
+       pairsamtools parse -c <chromsize> -o <parsed_pairsam>
+    pairsamtools sort --nproc 8 -o <sorted_pairsam> <parsed_pairsam>
     ```
     Commands
     ```bash
     samtools view -h output.bam | \
-       pairsamtools parse -c hg38.mainonly.chrom.size --output parsed.pairsam.gz
-    pairsamtools sort --nproc 8 --output sorted.pairsam.gz parsed.pairsam.gz
+       pairsamtools parse -c hg38.mainonly.chrom.size -o parsed.pairsam.gz
+    pairsamtools sort --nproc 8 -o sorted.pairsam.gz parsed.pairsam.gz
       
     gunzip -c sorted.pairsam.gz |less -S  # check your output file!
     ```
@@ -278,17 +278,17 @@ output.prebaked.cool
   * Dedup / Select / Split
     Usage
     ```bash
-    pairsamtools dedup --mark-dups --output <deduped_pairsam> <sorted_pairsam>
+    pairsamtools dedup --mark-dups -o <deduped_pairsam> <sorted_pairsam>
     pairsamtools select <select_condition> \
-        --output <filtered_pairsam> <deduped_pairsam> 
+        -o <filtered_pairsam> <deduped_pairsam> 
     pairsamtools split --output-pairs <output_pairs> <filtered_pairsam>
     ```
     Commands
     ```bash
-    pairsamtools dedup --mark-dups --output deduped.pairsam.gz sorted.pairsam.gz
+    pairsamtools dedup --mark-dups -o deduped.pairsam.gz sorted.pairsam.gz
     pairsamtools select \
       '(pair_type == "UU") or (pair_type == "UR") or (pair_type == "RU")' \
-      --output filtered.pairsam.gz deduped.pairsam.gz 
+      -ot filtered.pairsam.gz deduped.pairsam.gz 
     pairsamtools split --output-pairs output.pairs.gz filtered.pairsam.gz
     ```  
   * input: `pairsam` file
