@@ -211,7 +211,6 @@ output.prebaked.cool
       * Dedup : Mark PCR duplicates
       * Select : Filter valid Hi-C reads
       * Split : create a `pairs` or `bam` file
-
   * input: `bam` file
   * output: `bam`, `pairs` file
   * intermediate: `pairsam` file
@@ -225,8 +224,15 @@ output.prebaked.cool
     * `pairsamtools` (https://github.com/mirnylab/pairsamtools) : filtering
 
   * Pair types
-      [](http://pairsamtools.readthedocs.io/en/latest/_images/terminology.png)
-
+      <p style="text-align: center">
+         <img src="http://pairsamtools.readthedocs.io/en/latest/_images/terminology.png" width="600" />
+      </p>
+      <p style="text-align: center">
+         <img src="http://pairsamtools.readthedocs.io/en/latest/_images/read_pair_NU_NN.png" width="600" />
+      </p>
+      <p style="text-align: center">
+         <img src="http://pairsamtools.readthedocs.io/en/latest/_images/read_pair_UR.png" width="600" />
+      </p>
   * input: `bam` file
   * output: `bam`, `pairs` file
   * intermediate: `pairsam` file
@@ -250,7 +256,6 @@ output.prebaked.cool
       
     gunzip -c sorted.pairsam.gz |less -S  # check your output file!
     ```
-
   * input: `bam` file
   * output: `bam`, `pairs` file
   * intermediate: `pairsam` file
@@ -276,7 +281,6 @@ output.prebaked.cool
         --output filtered.pairsam.gz deduped.pairsam.gz 
     pairsamtools split --output-pairs output.pairs.gz filtered.pairsam.gz
     ```  
-
   * input: `bam` file
   * output: `bam`, `pairs` file
   * intermediate: `pairsam` file
