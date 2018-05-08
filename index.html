@@ -258,12 +258,12 @@ output.prebaked.cool
     * `pairsamtools` (https://github.com/mirnylab/pairsamtools) : filtering
 
   * Parse / sort
-    * Usage
+    Usage
     ```bash
     samtools view -h <input_bam_file> | pairsamtools parse -c <chromsize_file> --output <parsed_pairsam>
     pairsamtools sort --nproc 8 --output <sorted_pairsam> <parsed_pairsam>
     ```
-    * Commands
+    Commands
     ```bash
     samtools view -h output.bam | pairsamtools parse -c hg38.mainonly.chrom.size --output parsed.pairsam.gz
     pairsamtools sort --nproc 8 --output sorted.pairsam.gz parsed.pairsam.gz
@@ -281,14 +281,14 @@ output.prebaked.cool
     * `pairsamtools` (https://github.com/mirnylab/pairsamtools) : filtering
 
   * Dedup / Select / Split
-    * Usage
+    Usage
     ```bash
     pairsamtools dedup --mark-dups --output <deduped_pairsam> <sorted_pairsam>
     pairsamtools select <select_condition> \
         --output <filtered_pairsam> <deduped_pairsam> 
     pairsamtools split --output-pairs <output_pairs> <filtered_pairsam>
     ```
-    * Commands
+    Commands
     ```bash
     pairsamtools dedup --mark-dups --output deduped.pairsam.gz sorted.pairsam.gz
     pairsamtools select \
