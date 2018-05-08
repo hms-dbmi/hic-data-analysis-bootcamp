@@ -63,7 +63,7 @@ The material will be most useful to computational biologists and biologists work
 
 **09:00 - 09:10** Introduction and Overview (Peter Park and Burak Alver, Harvard)
 
-**09:10 - 09:30** Hi-C Protocol (Johan Gibcus, UMass)
+**09:10 - 10:30** Hi-C Protocol (Johan Gibcus, UMass)
 
 **10:30 - 10:45** _Break_
 
