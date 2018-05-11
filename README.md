@@ -188,21 +188,22 @@ wget https://s3.amazonaws.com/pkerp/public/bootcamp/ranked_TSS.tsv
 ### Docker images used for the bootcamp
 * First, install and start docker on your machine.
 ```
-docker pull duplexa/4dn-hic:v42
+docker pull duplexa/4dn-hic:v42  # hic pipeline
 ```
 ```
-docker pull gehlenborglab/higlass:v0.2.63
+docker pull gehlenborglab/higlass:v0.2.63  # higlass
 ```
 
 ### Jupiter notebooks
 ```
 git clone https://github.com/hms-dbmi/hic-data-analysis-bootcamp
+cd hic-data-analysis-bootcamp
+git pull
 #you may need some of the following in case you have an issue creating an environment
-#conda update --prefix /home/ec2-user/anaconda3 anaconda -y
 #conda update --all -y
 #sudo yum install -y hg
 #conda install gcc
-conda env create -n nezar -f hic-data-analysis-bootcamp/environment.yml
+conda env create -n nezar -f environment.yml
 source activate nezar
 jupyter notebook
 ```
