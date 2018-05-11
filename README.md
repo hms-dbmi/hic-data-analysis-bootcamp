@@ -131,17 +131,22 @@ Leonid Mirny is a professor at MIT's Institute for Medical Engineering & Science
 # Hi-C data processing pipeline
 mkdir data
 cd data/
+# input fastq files
 wget -O input_R1.fastq.gz https://goo.gl/VYdHX9
 wget -O input_R2.fastq.gz https://goo.gl/wPDXV3
 gunzip input_R1.fastq.gz
 gunzip input_R2.fastq.gz
+# bwa genome index
 wget -O hg38.bwaIndex.tgz https://goo.gl/ydpfZa
 tar -xzf hg38.bwaIndex.tgz
 rm hg38.bwaIndex.tgz
+# chromsizes
 wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV
-wget -O output.prebaked.bam goo.gl/SZAbFS
-wget -O output.prebaked.pairs.gz goo.gl/Dmh5gn
-wget -O output.prebaked.cool goo.gl/z5YNrd
+# prebaked output files
+wget -O prebaked.tgz goo.gl/RJYMFJ
+tar -xzf prebaked.tgz
+rm prebaked.tgz
+
 
 # Jupyter Notebook
 wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.1000.mcool
