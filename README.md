@@ -135,13 +135,8 @@ wget -O input_R1.fastq.gz https://goo.gl/VYdHX9
 wget -O input_R2.fastq.gz https://goo.gl/wPDXV3
 gunzip input_R1.fastq.gz
 gunzip input_R2.fastq.gz
-wget -O hg38.bwaIndex.tgz https://goo.gl/SU61DB
+wget -O hg38.bwaIndex.tgz https://goo.gl/ydpfZa
 tar -xzf hg38.bwaIndex.tgz
-mv GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta.sa hg38.fasta.sa
-mv GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta.pac hg38.fasta.pac
-mv GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta.bwt hg38.fasta.bwt
-mv GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta.ann hg38.fasta.ann
-mv GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta.amb hg38.fasta.amb
 rm hg38.bwaIndex.tgz
 wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV
 wget -O output.prebaked.bam goo.gl/SZAbFS
