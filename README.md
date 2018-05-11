@@ -128,6 +128,7 @@ Leonid Mirny is a professor at MIT's Institute for Medical Engineering & Science
 
 ### Data used for the bootcamp
 ```
+# Hi-C data processing pipeline
 mkdir data
 cd data/
 wget -O input_R1.fastq.gz https://goo.gl/VYdHX9
@@ -136,23 +137,18 @@ gunzip input_R1.fastq.gz
 gunzip input_R2.fastq.gz
 wget -O hg38.bwaIndex.tgz https://goo.gl/SU61DB
 tar -xzf hg38.bwaIndex.tgz
-
 mv GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta.sa hg38.fasta.sa
 mv GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta.pac hg38.fasta.pac
 mv GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta.bwt hg38.fasta.bwt
 mv GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta.ann hg38.fasta.ann
 mv GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta.amb hg38.fasta.amb
 rm hg38.bwaIndex.tgz
-
 wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV
 wget -O output.prebaked.bam goo.gl/SZAbFS
 wget -O output.prebaked.pairs.gz goo.gl/Dmh5gn
 wget -O output.prebaked.cool goo.gl/z5YNrd
 
-wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-NIPBL.multi.cool
-wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-RNAseq-minus.bw
-wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-UNTR.multi.cool
-
+# Jupyter Notebook
 wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.1000.mcool
 wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.10000.cool
 wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.20000.cool
@@ -183,15 +179,17 @@ wget https://s3.amazonaws.com/pkerp/public/bootcamp/hg19.chrom.sizes.reduced
 wget https://s3.amazonaws.com/pkerp/public/bootcamp/mm9.chrom.sizes.reduced
 wget https://s3.amazonaws.com/pkerp/public/bootcamp/mm9.fa
 wget https://s3.amazonaws.com/pkerp/public/bootcamp/ranked_TSS.tsv
+
+# Higlass
+wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-NIPBL.multi.cool
+wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-RNAseq-minus.bw
+wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-UNTR.multi.cool
 ```
 
-### Docker images used for the bootcamp
+### Data processing
 * First, install and start docker on your machine.
 ```
 docker pull duplexa/4dn-hic:v42  # hic pipeline
-```
-```
-docker pull gehlenborglab/higlass:v0.2.63  # higlass
 ```
 
 ### Jupiter notebooks
@@ -208,6 +206,14 @@ source activate nezar
 jupyter notebook
 ```
 If you're running it on your local machine, the notebook will open at `localhost:8888`.
+
+
+### HiGlass
+* First, install and start docker on your machine.
+```
+docker pull gehlenborglab/higlass:v0.2.63  # higlass
+pip install higlass-manage --upgrade
+```
 
 
 ### Papers
