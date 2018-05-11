@@ -121,16 +121,93 @@ Leonid Mirny is a professor at MIT's Institute for Medical Engineering & Science
 * [HiPiler](http://hipiler.lekschas.de) and [source code](https://github.com/flekschas/hipiler) and [docs](https://github.com/flekschas/hipiler/wiki)
 
 
-### Bioinformatics workflow managers
-
-* [snakemake](https://snakemake.readthedocs.io/en/stable/)
-* [nextflow](https://www.nextflow.io/)
-
-
 ### Package and environment management
 
 * [conda](https://conda.io/miniconda.html)
 * [bioconda](https://bioconda.github.io/)
+
+### Data used for the bootcamp
+```
+mkdir data
+cd data/
+wget -O input_R1.fastq.gz https://goo.gl/VYdHX9
+wget -O input_R2.fastq.gz https://goo.gl/wPDXV3
+gunzip input_R1.fastq.gz
+gunzip input_R2.fastq.gz
+wget -O hg38.bwaIndex.tgz https://goo.gl/SU61DB
+tar -xzf hg38.bwaIndex.tgz
+
+mv GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta.sa hg38.fasta.sa
+mv GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta.pac hg38.fasta.pac
+mv GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta.bwt hg38.fasta.bwt
+mv GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta.ann hg38.fasta.ann
+mv GRCh38_no_alt_analysis_set_GCA_000001405.15.fasta.amb hg38.fasta.amb
+rm hg38.bwaIndex.tgz
+
+wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV
+wget -O output.prebaked.bam goo.gl/SZAbFS
+wget -O output.prebaked.pairs.gz goo.gl/Dmh5gn
+wget -O output.prebaked.cool goo.gl/z5YNrd
+
+wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-NIPBL.multi.cool
+wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-RNAseq-minus.bw
+wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-UNTR.multi.cool
+
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.1000.mcool
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.10000.cool
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.20000.cool
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.40000.cool
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.100000.cool
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.1000.mcool
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.10000.cool
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.20000.cool
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.40000.cool
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.100000.cool
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.1000.mcool
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.10000.cool
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.20000.cool
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.40000.cool
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.100000.cool
+
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/CtcfCtrl.mm9__VS__InputCtrl.mm9.narrowPeak_with_motif.txt.gz
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/GSM1551552_HIC003_merged_nodups.txt.subset.gz
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL_R1.nodups.pairs.gz
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL_R1.nodups.pairs.gz.px2
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/Rao2014-GM12878-MboI-allreps-filtered.1000kb.cool
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/Rao2014-GM12878-MboI-allreps-filtered.5kb.cool
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR_R1.nodups.pairs.gz
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR_R1.nodups.pairs.gz.px2
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/b37.chrom.sizes.reduced
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/ctcf-sites.paired.300kb_flank10kb.tsv
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/hg19.chrom.sizes.reduced
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/mm9.chrom.sizes.reduced
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/mm9.fa
+wget https://s3.amazonaws.com/pkerp/public/bootcamp/ranked_TSS.tsv
+```
+
+### Docker images used for the bootcamp
+* First, install and start docker on your machine.
+```
+docker pull duplexa/4dn-hic:v42
+```
+```
+docker pull gehlenborglab/higlass:v0.2.63
+```
+
+### Jupiter notebooks
+```
+git clone https://github.com/hms-dbmi/hic-data-analysis-bootcamp
+#you may need some of the following in case you have an issue creating an environment
+#conda update --prefix /home/ec2-user/anaconda3 anaconda -y
+#conda update --all -y
+#sudo yum install -y hg
+#conda install gcc
+conda env create -n nezar -f hic-data-analysis-bootcamp/environment.yml
+source activate nezar
+jupyter notebook
+```
+If you're running it on your local machine, the notebook will open at `localhost:8888`, if not, `https://<ip>:8888`.
+
 
 ### Papers
 
