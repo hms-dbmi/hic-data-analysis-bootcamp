@@ -207,7 +207,7 @@ conda env create -n nezar -f environment.yml
 source activate nezar
 jupyter notebook
 ```
-If you're running it on your local machine, the notebook will open at `localhost:8888`, if not, `https://<ip>:8888`.
+If you're running it on your local machine, the notebook will open at `localhost:8888`.
 
 
 ### Papers
