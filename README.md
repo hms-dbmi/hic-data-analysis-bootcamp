@@ -1,16 +1,16 @@
 # Hi-C Data Analysis Bootcamp
 
-> Assessing, analyzing, and visualizing the 3D genome.
+> A workshop on measuring, analyzing, and visualizing the 3D genome with Hi-C provided by Harvard, MIT, and UMassMed.
 
 ![Funky Colormaps](/teaser.jpg?raw=true "Some funky colormaps")
 
 ## Files in this repository
 
-* **Tutorial Part 1 (Hi-C Protocol)**: [https://github.com/hms-dbmi/hic-data-analysis-bootcamp/blob/master/HiC-Protocol.pptx](https://github.com/hms-dbmi/hic-data-analysis-bootcamp/blob/master/HiC-Protocol.pptx)
-* **Tutorial Part 2 (From fastqs to contact matrices)**: [https://hms-dbmi.github.io/hic-data-analysis-bootcamp/](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/)
-* **Tutorial Part 3 (From contact matrices to biology)**: [https://github.com/hms-dbmi/hic-data-analysis-bootcamp/blob/master/matrix-to-bio.pptx](https://github.com/hms-dbmi/hic-data-analysis-bootcamp/blob/master/matrix-to-bio.pptx)
-* **Tutorial Part 4 (Hi-C Data Visualization - HiGlass)**: [https://hms-dbmi.github.io/hic-data-analysis-bootcamp/#24](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/#24)
-* **Tutorial Part 5 (Hi-C Data Visualization - HiPiler)**: [hipiler.pdf](./hipiler.pdf)
+* **Tutorial Part 1 (Hi-C Protocol)**: [Slides PDF](./HiC-Protocol.pdf) | [PPTX](./HiC-Protocol.pptx)
+* **Tutorial Part 2 (From fastqs to contact matrices)**: [Slides HTML](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/)
+* **Tutorial Part 3 (From contact matrices to biology)**: [Slides PDF](./From-Contact-Matrix-to-Biology.pdf) | [PPTX](./From-Contact-Matrix-to-Biology.pptx)
+* **Tutorial Part 4 (Hi-C Data Visualization - HiGlass)**: [Slides HTML](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/#24)
+* **Tutorial Part 5 (Hi-C Data Visualization - HiPiler)**: [Slides PDF](./HiPiler-Exploring-HiC-Features-Through-Visual-Decomposition.pdf)
 
 ## Presenters
 
@@ -98,11 +98,11 @@ Nezar Abdennur is a PhD candidate in Computational and Systems Biology at MIT. H
 
 ### Peter Kerpedjiev
 
-Peter Kerpedjiev is a postdoctoral researcher working on creating tools (such as HiGlass) for visualizing large genomic data sets. Twitter: [@pkerpedjiev](https://twitter.com/pkerpedjiev) Web: [emptypipes.org](http://emptypipes.org)
+Peter Kerpedjiev is a postdoctoral researcher working on creating tools (such as [HiGlass](http://higlass.io)) for visualizing large genomic data sets. Twitter: [@pkerpedjiev](https://twitter.com/pkerpedjiev) Web: [emptypipes.org](http://emptypipes.org)
 
 ### Fritz Lekschas
 
-Fritz is a PhD student working on biomedical information visualization with focus on large multiscale genomic data sets. Twitter: [@flekschas](https://twitter.com/flekschas) Web: [lekschas.de](https://lekschas.de)
+Fritz is a PhD student working on biomedical information visualization with focus on large multiscale genomic data sets. He created tools like [HiPiler](http://hipiler.lekschas.de) or [Scalable Insets](http://scalable-insets.lekschas.de) Twitter: [@flekschas](https://twitter.com/flekschas) Web: [lekschas.de](https://lekschas.de)
 
 ### Leonid Mirny
 
@@ -180,7 +180,7 @@ wget https://s3.amazonaws.com/pkerp/public/bootcamp/mm9.chrom.sizes.reduced
 wget https://s3.amazonaws.com/pkerp/public/bootcamp/mm9.fa
 wget https://s3.amazonaws.com/pkerp/public/bootcamp/ranked_TSS.tsv
 
-# Higlass
+# HiGlass
 wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-NIPBL.multi.cool
 wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-RNAseq-minus.bw
 wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-UNTR.multi.cool
