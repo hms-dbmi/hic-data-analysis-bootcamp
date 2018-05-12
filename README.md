@@ -10,7 +10,7 @@
 * **Tutorial Part 2 (From fastqs to contact matrices)**: [Slides HTML](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/)
 * **Tutorial Part 3 (From contact matrices to biology)**: [Slides PDF](./From-Contact-Matrix-to-Biology.pdf) | [PPTX](./From-Contact-Matrix-to-Biology.pptx)
 * **Tutorial Part 4 (Hi-C Data Visualization - HiGlass)**: [Slides HTML](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/#24)
-* **Tutorial Part 5 (Hi-C Data Visualization - HiPiler)**: [Slides PDF](./HiPiler-Exploring-HiC-Features-Through-Visual-Decomposition.pdf)
+* **Tutorial Part 5 (Hi-C Data Visualization - HiPiler)**: [Slides PDF](./HiPiler-Exploring-HiC-Features-Through-Visual-Decomposition.pdf) | [HTML](https://speakerdeck.com/flekschas/hi-c-data-visualization-with-hipiler)
 
 ## Presenters
 
