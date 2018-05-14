@@ -192,7 +192,7 @@ wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-
 docker pull duplexa/4dn-hic:v42  # hic pipeline
 ```
 
-### Jupiter notebooks
+### Jupyter notebooks
 ```
 git clone https://github.com/hms-dbmi/hic-data-analysis-bootcamp
 cd hic-data-analysis-bootcamp
@@ -201,8 +201,8 @@ git pull
 #conda update --all -y
 #sudo yum install -y hg
 #conda install gcc
-conda env create -n nezar -f environment.yml
-source activate nezar
+conda env create -n bootcamp -f environment.yml
+source activate bootcamp
 jupyter notebook
 ```
 If you're running it on your local machine, the notebook will open at `localhost:8888`.
