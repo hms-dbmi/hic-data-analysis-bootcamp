@@ -147,7 +147,7 @@ tar -xzf prebaked.tgz
 rm prebaked.tgz
 ```
 
-Now, you should be able to follow though [Tutorial Part II](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/)
+Now, you should be able to follow though [Tutorial Part II](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/).
 
 ### Working in a cluster without docker
 
