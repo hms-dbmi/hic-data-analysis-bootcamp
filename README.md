@@ -33,23 +33,16 @@ information on how to walk through the hands-on sessions offline.
 * [Nils Gehlenborg](http://gehlenborglab.org/), Assistant Professor, Harvard Medical School
 * [Peter Park](https://compbio.hms.harvard.edu/), Professor, Harvard Medical School
 
-## Motivation
+## Motivation and Objectives
 
 Due in large part to the explanatory power of chromosome organization in gene regulation, its association with disease and disorder as well as the unanswered questions regarding the mechanisms behind its maintenance and function, the 3D structure and function of the genome are becoming increasingly target of scientific scrutiny. With efforts such as the 4D Nucleome Project and ENCODE 4 already beginning to generate large amounts of data, the ability to analyze and visualize it will be a valuable asset to any computational biologist tasked with interpretation of experimental results.
 
-## Objectives
-
 The objectives of this tutorial are
-
 * To introduce the theoretical concepts related to 3D genome data analysis
 * To familiarize participants with the data types, analysis pipeline, and common tools for analysis and visualization of 3D genome data
 * To provide a hands on experience in data analysis by walking through some common use cases of existing tools for data analysis and visualization.
 
-## Goal
-
 After the workshop participants should be able to obtain, process, analyze, and visualize 3D genome data on their own as well as to understand some of the logic, motivation and pitfalls associated with common operations such as matrix balancing and multi-resolution visualization.
-
-## Intended audience and level
 
 The subject matter and practical exercises presented in this tutorial will be accessible to a broad audience. Prior experience with next generation sequencing and the data it produces will be helpful for understanding the subsequent processing steps used to derive contact maps as well as some of the artifacts that can arise during data processing.
 
