@@ -124,7 +124,7 @@ sessions of the bootcamp by following the instructions below.
 
 ### From fastqs to contact matrices
 
-1. Install [docker](https://docs.docker.com/install/), if you have not already done so. (Docker is a lighter alternative to virtual machines.)
+1. Install [docker](https://docs.docker.com/install/), if you have not already done so. ([Docker](https://docs.docker.com/) is a lighter alternative to virtual machines.)
 1. Pull the docker image: `docker pull duplexa/4dn-hic:v42`. This docker image contains a number of software that have been pre-installed for HiC data processing.
 1. Download the sample data for this session under your home directory to "~/data/" (or edit the commands on the slides accordingly, if you prefer a different directory).
 ```
@@ -176,9 +176,8 @@ file.
     ```
 1. Download the sample data for this session under your home directory to "~/data/" (or edit the commands on the slides accordingly, if you prefer a different directory.
     ```
-    cd
-    mkdir data
-    cd data/
+    ## assuming you have created the data directory in the previous section
+    cd ~/data/
     wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.1000.mcool
     wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.10000.cool
     wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.20000.cool
@@ -212,6 +211,7 @@ file.
     ```
 1. activate the environment and run jupyter notebook
     ```
+    cd
     source activate bootcamp
     jupyter notebook
     ```
@@ -225,6 +225,8 @@ If you're running it on your local machine, the notebook will open at http://loc
     ```
 2. Download the sample data.
     ```
+    ## assuming you have created the data directory in the previous section
+    cd ~/data/
     wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-NIPBL.multi.cool
     wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-RNAseq-minus.bw
     wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-UNTR.multi.cool
