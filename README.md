@@ -131,23 +131,25 @@ sessions of the bootcamp by following the instructions below.
 mkdir data
 cd data/
 # input fastq files
-wget -O input_R1.fastq.gz https://goo.gl/VYdHX9
-wget -O input_R2.fastq.gz https://goo.gl/wPDXV3
+wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/input_R1.fastq.gz
+wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/input_R2.fastq.gz
 gunzip input_R1.fastq.gz
 gunzip input_R2.fastq.gz
 # bwa genome index
-wget -O hg38.bwaIndex.tgz https://goo.gl/ydpfZa
+wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/hg38.bwaIndex.tgz
 tar -xzf hg38.bwaIndex.tgz
 rm hg38.bwaIndex.tgz
 # chromsizes
-wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV
+wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/hg38.mainonly.chrom.size
 # prebaked output files
-wget -O prebaked.tgz goo.gl/RJYMFJ
+wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/prebaked.tgz
 tar -xzf prebaked.tgz
 rm prebaked.tgz
+# move back a directory
+cd ..
 ```
 
-Now, you should be able to follow though [Tutorial Part II](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/).
+Now, you should be able to follow slides 1 through 23 of [the tutorial](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/).
 
 ### Working in a cluster without docker
 
@@ -162,7 +164,7 @@ file.
 ### From contact matrices to biology
 
 1. Install [conda](https://conda.io/miniconda.html), if you have not
-   already done so. (Conda is an open source package management tool that allows you to create separate environments.)
+   already done so. If using the docker image from the previous section, it is installed for you. (Conda is an open source package management tool that allows you to create separate environments.)
 1. clone this repo and set up the environment.
     ```
     git clone https://github.com/hms-dbmi/hic-data-analysis-bootcamp
@@ -179,43 +181,43 @@ file.
     cd
     mkdir data
     cd data/
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.1000.mcool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.10000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.20000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.40000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.100000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.1000.mcool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.10000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.20000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.40000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.100000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.1000.mcool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.10000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.20000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.40000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.100000.cool
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/NIPBL.1000.mcool
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/NIPBL.10000.cool
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/NIPBL.20000.cool
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/NIPBL.40000.cool
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/NIPBL.100000.cool
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/TAM.1000.mcool
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/TAM.10000.cool
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/TAM.20000.cool
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/TAM.40000.cool
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/TAM.100000.cool
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/UNTR.1000.mcool
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/UNTR.10000.cool
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/UNTR.20000.cool
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/UNTR.40000.cool
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/UNTR.100000.cool
     
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/CtcfCtrl.mm9__VS__InputCtrl.mm9.narrowPeak_with_motif.txt.gz
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/GSM1551552_HIC003_merged_nodups.txt.subset.gz
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL_R1.nodups.pairs.gz
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL_R1.nodups.pairs.gz.px2
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/Rao2014-GM12878-MboI-allreps-filtered.1000kb.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/Rao2014-GM12878-MboI-allreps-filtered.5kb.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR_R1.nodups.pairs.gz
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR_R1.nodups.pairs.gz.px2
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/b37.chrom.sizes.reduced
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/ctcf-sites.paired.300kb_flank10kb.tsv
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/hg19.chrom.sizes.reduced
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/mm9.chrom.sizes.reduced
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/mm9.fa
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/ranked_TSS.tsv
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/CtcfCtrl.mm9__VS__InputCtrl.mm9.narrowPeak_with_motif.txt.gz
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/GSM1551552_HIC003_merged_nodups.txt.subset.gz
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/NIPBL_R1.nodups.pairs.gz
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/NIPBL_R1.nodups.pairs.gz.px2
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/Rao2014-GM12878-MboI-allreps-filtered.1000kb.cool
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/Rao2014-GM12878-MboI-allreps-filtered.5kb.cool
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/UNTR_R1.nodups.pairs.gz
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/UNTR_R1.nodups.pairs.gz.px2
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/b37.chrom.sizes.reduced
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/ctcf-sites.paired.300kb_flank10kb.tsv
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/hg19.chrom.sizes.reduced
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/mm9.chrom.sizes.reduced
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/mm9.fa
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/ranked_TSS.tsv
     ```
-1. activate the environment and run jupyter notebook
+1. activate the environment and run jupyter notebook.
     ```
     source activate bootcamp
     jupyter notebook
     ```
-If you're running it on your local machine, the notebook will open at http://localhost:8888.
+If you're running it on your local machine, the notebook will open at http://localhost:8888. Follow the steps in __NOTEBOOK__.
 
 ### HiGlass
 1. Install and start docker on your machine.
@@ -225,12 +227,12 @@ If you're running it on your local machine, the notebook will open at http://loc
     ```
 2. Download the sample data.
     ```
-    wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-NIPBL.multi.cool
-    wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-RNAseq-minus.bw
-    wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-UNTR.multi.cool
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/Schwarzer-et-al-2017-NIPBL.multi.cool
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/Schwarzer-et-al-2017-RNAseq-minus.bw
+    wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/Schwarzer-et-al-2017-UNTR.multi.cool
     ```
 
-Now, you should be able to follow though [Tutorial Part IV](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/#24).
+Now, you should be able to follow slides 24 through 59 of [the tutorial](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/#24).
 
 
 ## Resources
