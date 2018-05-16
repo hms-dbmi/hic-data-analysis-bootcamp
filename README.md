@@ -33,23 +33,16 @@ information on how to walk through the hands-on sessions offline.
 * [Nils Gehlenborg](http://gehlenborglab.org/), Assistant Professor, Harvard Medical School
 * [Peter Park](https://compbio.hms.harvard.edu/), Professor, Harvard Medical School
 
-## Motivation
+## Motivation and Objectives
 
 Due in large part to the explanatory power of chromosome organization in gene regulation, its association with disease and disorder as well as the unanswered questions regarding the mechanisms behind its maintenance and function, the 3D structure and function of the genome are becoming increasingly target of scientific scrutiny. With efforts such as the 4D Nucleome Project and ENCODE 4 already beginning to generate large amounts of data, the ability to analyze and visualize it will be a valuable asset to any computational biologist tasked with interpretation of experimental results.
 
-## Objectives
-
 The objectives of this tutorial are
-
 * To introduce the theoretical concepts related to 3D genome data analysis
 * To familiarize participants with the data types, analysis pipeline, and common tools for analysis and visualization of 3D genome data
 * To provide a hands on experience in data analysis by walking through some common use cases of existing tools for data analysis and visualization.
 
-## Goal
-
 After the workshop participants should be able to obtain, process, analyze, and visualize 3D genome data on their own as well as to understand some of the logic, motivation and pitfalls associated with common operations such as matrix balancing and multi-resolution visualization.
-
-## Intended audience and level
 
 The subject matter and practical exercises presented in this tutorial will be accessible to a broad audience. Prior experience with next generation sequencing and the data it produces will be helpful for understanding the subsequent processing steps used to derive contact maps as well as some of the artifacts that can arise during data processing.
 
@@ -124,7 +117,7 @@ sessions of the bootcamp by following the instructions below.
 
 ### From fastqs to contact matrices
 
-1. Install [docker](https://docs.docker.com/install/), if you have not already done so. (Docker is a lighter alternative to virtual machines.)
+1. Install [docker](https://docs.docker.com/install/), if you have not already done so. ([Docker](https://docs.docker.com/) is a lighter alternative to virtual machines.)
 1. Pull the docker image: `docker pull duplexa/4dn-hic:v42`. This docker image contains a number of software that have been pre-installed for HiC data processing.
 1. Download the sample data for this session under your home directory to "~/data/" (or edit the commands on the slides accordingly, if you prefer a different directory).
 ```
@@ -178,6 +171,7 @@ file.
     ```
 1. Download the sample data for this session under your home directory to "~/data/" (or edit the commands on the slides accordingly, if you prefer a different directory.
     ```
+<<<<<<< HEAD
     cd
     mkdir data
     cd data/
@@ -196,6 +190,25 @@ file.
     wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/UNTR.20000.cool
     wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/UNTR.40000.cool
     wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/UNTR.100000.cool
+=======
+    ## assuming you have created the data directory in the previous section
+    cd ~/data/
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.1000.mcool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.10000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.20000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.40000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.100000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.1000.mcool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.10000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.20000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.40000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.100000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.1000.mcool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.10000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.20000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.40000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.100000.cool
+>>>>>>> b585a78b037a1fa578e93bb8bf99b67740f8b521
     
     wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/CtcfCtrl.mm9__VS__InputCtrl.mm9.narrowPeak_with_motif.txt.gz
     wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/GSM1551552_HIC003_merged_nodups.txt.subset.gz
@@ -214,6 +227,7 @@ file.
     ```
 1. activate the environment and run jupyter notebook.
     ```
+    cd
     source activate bootcamp
     jupyter notebook
     ```
@@ -227,9 +241,17 @@ If you're running it on your local machine, the notebook will open at http://loc
     ```
 2. Download the sample data.
     ```
+<<<<<<< HEAD
     wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/Schwarzer-et-al-2017-NIPBL.multi.cool
     wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/Schwarzer-et-al-2017-RNAseq-minus.bw
     wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/Schwarzer-et-al-2017-UNTR.multi.cool
+=======
+    ## assuming you have created the data directory in the previous section
+    cd ~/data/
+    wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-NIPBL.multi.cool
+    wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-RNAseq-minus.bw
+    wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-UNTR.multi.cool
+>>>>>>> b585a78b037a1fa578e93bb8bf99b67740f8b521
     ```
 
 Now, you should be able to follow slides 24 through 59 of [the tutorial](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/#24).
