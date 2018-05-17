@@ -118,8 +118,8 @@ sessions of the bootcamp by following the instructions below.
 ### From fastqs to contact matrices
 
 1. Install [docker](https://docs.docker.com/install/), if you have not already done so. ([Docker](https://docs.docker.com/) is a lighter alternative to virtual machines.)
-1. Pull the docker image: `docker pull duplexa/4dn-hic:v42`. This docker image contains a number of software that have been pre-installed for HiC data processing.
-1. Download the sample data for this session under your home directory to "~/data/" (or edit the commands on the slides accordingly, if you prefer a different directory).
+2. Pull the docker image: `docker pull duplexa/4dn-hic:v42`. This docker image contains a number of software that have been pre-installed for HiC data processing.
+3. Download the sample data for this session under your home directory to "~/data/" (or edit the commands on the slides accordingly, if you prefer a different directory).
 ```
 mkdir data
 cd data/
@@ -157,8 +157,8 @@ file.
 ### From contact matrices to biology
 
 1. Install [conda](https://conda.io/miniconda.html), if you have not
-   already done so. If using the docker image from the previous section, it is installed for you. (Conda is an open source package management tool that allows you to create separate environments.)
-1. clone this repo and set up the environment.
+   already done so. It is installed for you if you are using the docker image from the previous section. Conda is an open source package management tool that allows you to create separate environments.
+2. Clone this repo and set up the environment.
     ```
     git clone https://github.com/hms-dbmi/hic-data-analysis-bootcamp
     cd hic-data-analysis-bootcamp
@@ -169,12 +169,10 @@ file.
     #conda install gcc
     conda env create -n bootcamp -f environment.yml
     ```
-1. Download the sample data for this session under your home directory to "~/data/" (or edit the commands on the slides accordingly, if you prefer a different directory.
+3. Download the sample data for this session into the pre-existing "notebooks/data" directory (or edit the commands on the slides accordingly, if you prefer a different directory.
     ```
-<<<<<<< HEAD
-    cd
-    mkdir data
-    cd data/
+    # from the hic-data-analysis-bootcamp directory we just made
+    cd notebooks/data
     wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/NIPBL.1000.mcool
     wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/NIPBL.10000.cool
     wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/NIPBL.20000.cool
@@ -190,25 +188,6 @@ file.
     wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/UNTR.20000.cool
     wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/UNTR.40000.cool
     wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/UNTR.100000.cool
-=======
-    ## assuming you have created the data directory in the previous section
-    cd ~/data/
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.1000.mcool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.10000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.20000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.40000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.100000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.1000.mcool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.10000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.20000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.40000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.100000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.1000.mcool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.10000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.20000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.40000.cool
-    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.100000.cool
->>>>>>> b585a78b037a1fa578e93bb8bf99b67740f8b521
     
     wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/CtcfCtrl.mm9__VS__InputCtrl.mm9.narrowPeak_with_motif.txt.gz
     wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/GSM1551552_HIC003_merged_nodups.txt.subset.gz
@@ -225,13 +204,13 @@ file.
     wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/mm9.fa
     wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/ranked_TSS.tsv
     ```
-1. activate the environment and run jupyter notebook.
+4. Go back to the "notebooks" directory and activate the environment to run the jupyter notebook.
     ```
-    cd
+    cd ..
     source activate bootcamp
     jupyter notebook
     ```
-If you're running it on your local machine, the notebook will open at http://localhost:8888. Follow the steps in __NOTEBOOK__.
+If you're running it on your local machine, the notebook will open at http://localhost:8888. You may have to input the token displayed when starting up the Jupyter. Follow the steps in the notebooks starting with the top one, named "00_intro_cooler-cli".
 
 ### HiGlass
 1. Install and start docker on your machine.
@@ -241,17 +220,9 @@ If you're running it on your local machine, the notebook will open at http://loc
     ```
 2. Download the sample data.
     ```
-<<<<<<< HEAD
     wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/Schwarzer-et-al-2017-NIPBL.multi.cool
     wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/Schwarzer-et-al-2017-RNAseq-minus.bw
     wget https://s3.amazonaws.com/4dn-dcic-public/hic-data-analysis-bootcamp/Schwarzer-et-al-2017-UNTR.multi.cool
-=======
-    ## assuming you have created the data directory in the previous section
-    cd ~/data/
-    wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-NIPBL.multi.cool
-    wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-RNAseq-minus.bw
-    wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-UNTR.multi.cool
->>>>>>> b585a78b037a1fa578e93bb8bf99b67740f8b521
     ```
 
 Now, you should be able to follow slides 24 through 59 of [the tutorial](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/#24).
