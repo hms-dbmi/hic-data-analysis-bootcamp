@@ -142,7 +142,7 @@ rm prebaked.tgz
 cd ..
 ```
 
-Now, you should be able to follow slides 1 through 23 of [the tutorial](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/).
+Now, you should be able to follow slides 1 through 23 of [the tutorial](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/). When you are finished, exit the docker container with `Ctrl-d` before proceeding to the next part.
 
 ### Working in a cluster without docker
 
