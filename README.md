@@ -4,6 +4,12 @@
 
 ![Funky Colormaps](/teaser.jpg?raw=true "Some funky colormaps")
 
+## Introduction
+
+4D Nucleome Data Coordination and Integration Center and the Center for 3D Structure and Physics of the Genome hosted a Hi-C data analysis
+bootcamp at Harvard Medical School on May, 8th 2018. This repo contains the material for this bootcamp. Below, you can find more
+information on how to walk through the hands-on sessions offline.
+
 ## Files in this repository
 
 * **Tutorial Part 1 (Hi-C Protocol)**: [Slides PDF](./HiC-Protocol.pdf) | [PPTX](./HiC-Protocol.pptx)
@@ -27,23 +33,16 @@
 * [Nils Gehlenborg](http://gehlenborglab.org/), Assistant Professor, Harvard Medical School
 * [Peter Park](https://compbio.hms.harvard.edu/), Professor, Harvard Medical School
 
-## Motivation
+## Motivation and Objectives
 
 Due in large part to the explanatory power of chromosome organization in gene regulation, its association with disease and disorder as well as the unanswered questions regarding the mechanisms behind its maintenance and function, the 3D structure and function of the genome are becoming increasingly target of scientific scrutiny. With efforts such as the 4D Nucleome Project and ENCODE 4 already beginning to generate large amounts of data, the ability to analyze and visualize it will be a valuable asset to any computational biologist tasked with interpretation of experimental results.
 
-## Objectives
-
 The objectives of this tutorial are
-
 * To introduce the theoretical concepts related to 3D genome data analysis
 * To familiarize participants with the data types, analysis pipeline, and common tools for analysis and visualization of 3D genome data
 * To provide a hands on experience in data analysis by walking through some common use cases of existing tools for data analysis and visualization.
 
-## Goal
-
 After the workshop participants should be able to obtain, process, analyze, and visualize 3D genome data on their own as well as to understand some of the logic, motivation and pitfalls associated with common operations such as matrix balancing and multi-resolution visualization.
-
-## Intended audience and level
 
 The subject matter and practical exercises presented in this tutorial will be accessible to a broad audience. Prior experience with next generation sequencing and the data it produces will be helpful for understanding the subsequent processing steps used to derive contact maps as well as some of the artifacts that can arise during data processing.
 
@@ -51,13 +50,8 @@ The material will be most useful to computational biologists and biologists work
 
 ## Student Requirements
 
-* Install Docker
-  * https://www.docker.com/community-edition
-* Install Miniconda
-  * https://conda.io/miniconda.html
-* Windows users
-  * Putty (for ssh)
-  * https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+ * A server will be set up for students with all the required software.
+ * Windows users, please install [Putty (for ssh)](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
 ## Agenda
 
@@ -108,27 +102,25 @@ Fritz is a PhD student working on biomedical information visualization with focu
 
 Leonid Mirny is a professor at MIT's Institute for Medical Engineering & Science. His lab studies the three dimensional organization of chromosomes using a combination of computational analysis and simulation. Twitter: [@leonidmirny](https://twitter.com/leonidmirny) Web: [mirnylab.mit.edu](http://mirnylab.mit.edu/)
 
+## Pointers for Offline Walk-through
 
-## Resources
+During the bootcamp, users were given access to linux servers where
+- docker was installed,
+- conda was installed,
+- a conda enivronment was set up with a number of dependencies
+installed, including juypter notebook,
+- higlass-manager was installed,
+- and sample data was downloaded.
 
-### Software
+You can set up a similar environment and walk through the hands-on
+sessions of the bootcamp by following the instructions below.
 
-* [bwa](https://github.com/lh3/bwa) and [SAM spec](https://samtools.github.io/hts-specs/SAMv1.pdf)
-* [pairsamtools](https://github.com/mirnylab/pairsamtools)
-* [pairix](https://github.com/4dn-dcic/pairix)
-* [cooler](https://github.com/mirnylab/cooler) and [docs](http://cooler.readthedocs.io/en/latest/)
-* [HiGlass](http://cooler.readthedocs.io/en/latest/) and [wiki](https://github.com/hms-dbmi/higlass/wiki)
-* [HiPiler](http://hipiler.lekschas.de) and [source code](https://github.com/flekschas/hipiler) and [docs](https://github.com/flekschas/hipiler/wiki)
+### From fastqs to contact matrices
 
-
-### Package and environment management
-
-* [conda](https://conda.io/miniconda.html)
-* [bioconda](https://bioconda.github.io/)
-
-### Data used for the bootcamp
+1. Install [docker](https://docs.docker.com/install/), if you have not already done so. ([Docker](https://docs.docker.com/) is a lighter alternative to virtual machines.)
+1. Pull the docker image: `docker pull duplexa/4dn-hic:v42`. This docker image contains a number of software that have been pre-installed for HiC data processing.
+1. Download the sample data for this session under your home directory to "~/data/" (or edit the commands on the slides accordingly, if you prefer a different directory).
 ```
-# Hi-C data processing pipeline
 mkdir data
 cd data/
 # input fastq files
@@ -146,74 +138,112 @@ wget -O hg38.mainonly.chrom.size https://goo.gl/WfSQEV
 wget -O prebaked.tgz goo.gl/RJYMFJ
 tar -xzf prebaked.tgz
 rm prebaked.tgz
-
-
-# Jupyter Notebook
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.1000.mcool
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.10000.cool
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.20000.cool
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.40000.cool
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.100000.cool
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.1000.mcool
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.10000.cool
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.20000.cool
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.40000.cool
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.100000.cool
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.1000.mcool
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.10000.cool
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.20000.cool
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.40000.cool
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.100000.cool
-
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/CtcfCtrl.mm9__VS__InputCtrl.mm9.narrowPeak_with_motif.txt.gz
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/GSM1551552_HIC003_merged_nodups.txt.subset.gz
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL_R1.nodups.pairs.gz
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL_R1.nodups.pairs.gz.px2
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/Rao2014-GM12878-MboI-allreps-filtered.1000kb.cool
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/Rao2014-GM12878-MboI-allreps-filtered.5kb.cool
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR_R1.nodups.pairs.gz
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR_R1.nodups.pairs.gz.px2
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/b37.chrom.sizes.reduced
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/ctcf-sites.paired.300kb_flank10kb.tsv
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/hg19.chrom.sizes.reduced
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/mm9.chrom.sizes.reduced
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/mm9.fa
-wget https://s3.amazonaws.com/pkerp/public/bootcamp/ranked_TSS.tsv
-
-# HiGlass
-wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-NIPBL.multi.cool
-wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-RNAseq-minus.bw
-wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-UNTR.multi.cool
 ```
 
-### Data processing
-* First, install and start docker on your machine.
-```
-docker pull duplexa/4dn-hic:v42  # hic pipeline
-```
+Now, you should be able to follow though [Tutorial Part II](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/).
 
-### Jupyter notebooks
-```
-git clone https://github.com/hms-dbmi/hic-data-analysis-bootcamp
-cd hic-data-analysis-bootcamp
-git pull
-#you may need some of the following in case you have an issue creating an environment
-#conda update --all -y
-#sudo yum install -y hg
-#conda install gcc
-conda env create -n bootcamp -f environment.yml
-source activate bootcamp
-jupyter notebook
-```
-If you're running it on your local machine, the notebook will open at `localhost:8888`.
+### Working in a cluster without docker
 
+If you are working in a High Performance Compute Cluster, you may not
+be allowed the install Docker. Instead, you can find the recipe for
+the docker image used above
+[here](https://github.com/4dn-dcic/docker-4dn-hic/tree/v42). The exact configuration of the docker image can be seen in the
+[dockerfile](https://github.com/4dn-dcic/docker-4dn-hic/blob/v42/Dockerfile). You
+can get information on the  bioinformatics software installed inside the docker image in the [download.sh](https://github.com/4dn-dcic/docker-4dn-hic/blob/v42/downloads.sh)
+file.
+
+### From contact matrices to biology
+
+1. Install [conda](https://conda.io/miniconda.html), if you have not
+   already done so. (Conda is an open source package management tool that allows you to create separate environments.)
+1. clone this repo and set up the environment.
+    ```
+    git clone https://github.com/hms-dbmi/hic-data-analysis-bootcamp
+    cd hic-data-analysis-bootcamp
+    git pull
+    #you may need some of the following in case you have an issue creating an environment
+    #conda update --all -y
+    #sudo yum install -y hg
+    #conda install gcc
+    conda env create -n bootcamp -f environment.yml
+    ```
+1. Download the sample data for this session under your home directory to "~/data/" (or edit the commands on the slides accordingly, if you prefer a different directory.
+    ```
+    ## assuming you have created the data directory in the previous section
+    cd ~/data/
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.1000.mcool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.10000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.20000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.40000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL.100000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.1000.mcool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.10000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.20000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.40000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/TAM.100000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.1000.mcool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.10000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.20000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.40000.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR.100000.cool
+    
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/CtcfCtrl.mm9__VS__InputCtrl.mm9.narrowPeak_with_motif.txt.gz
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/GSM1551552_HIC003_merged_nodups.txt.subset.gz
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL_R1.nodups.pairs.gz
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/NIPBL_R1.nodups.pairs.gz.px2
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/Rao2014-GM12878-MboI-allreps-filtered.1000kb.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/Rao2014-GM12878-MboI-allreps-filtered.5kb.cool
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR_R1.nodups.pairs.gz
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/UNTR_R1.nodups.pairs.gz.px2
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/b37.chrom.sizes.reduced
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/ctcf-sites.paired.300kb_flank10kb.tsv
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/hg19.chrom.sizes.reduced
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/mm9.chrom.sizes.reduced
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/mm9.fa
+    wget https://s3.amazonaws.com/pkerp/public/bootcamp/ranked_TSS.tsv
+    ```
+1. activate the environment and run jupyter notebook
+    ```
+    cd
+    source activate bootcamp
+    jupyter notebook
+    ```
+If you're running it on your local machine, the notebook will open at http://localhost:8888.
 
 ### HiGlass
-* First, install and start docker on your machine.
-```
-docker pull gehlenborglab/higlass:v0.2.63  # higlass
-pip install higlass-manage --upgrade
-```
+1. Install and start docker on your machine.
+    ```
+    docker pull gehlenborglab/higlass:v0.2.63  # higlass
+    pip install higlass-manage --upgrade
+    ```
+2. Download the sample data.
+    ```
+    ## assuming you have created the data directory in the previous section
+    cd ~/data/
+    wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-NIPBL.multi.cool
+    wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-RNAseq-minus.bw
+    wget https://s3.amazonaws.com/pkerp/public/Schwarzer-et-al/Schwarzer-et-al-2017-UNTR.multi.cool
+    ```
+
+Now, you should be able to follow though [Tutorial Part IV](https://hms-dbmi.github.io/hic-data-analysis-bootcamp/#24).
+
+
+## Resources
+
+### Software
+
+* [bwa](https://github.com/lh3/bwa) and [SAM spec](https://samtools.github.io/hts-specs/SAMv1.pdf)
+* [pairsamtools](https://github.com/mirnylab/pairsamtools)
+* [pairix](https://github.com/4dn-dcic/pairix)
+* [cooler](https://github.com/mirnylab/cooler) and [docs](http://cooler.readthedocs.io/en/latest/)
+* [HiGlass](http://cooler.readthedocs.io/en/latest/) and [wiki](https://github.com/hms-dbmi/higlass/wiki)
+* [HiPiler](http://hipiler.lekschas.de) and [source code](https://github.com/flekschas/hipiler) and [docs](https://github.com/flekschas/hipiler/wiki)
+
+### Package and environment management
+
+* [conda](https://conda.io/miniconda.html)
+* [bioconda](https://bioconda.github.io/)
+
 
 
 ### Papers
