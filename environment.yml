@@ -37,6 +37,7 @@ dependencies:
         - git+https://github.com/mirnylab/cooltools
         - git+https://github.com/nvictus/pybbi.git
         - git+https://github.com/nvictus/lavaburst.git
+        - https://bitbucket.org/mirnylab/mirnylib/get/tip.tar.gz
         - bioframe
         - cooler
         - multiprocess

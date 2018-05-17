@@ -113,7 +113,7 @@ installed, including juypter notebook,
 - and sample data was downloaded.
 
 You can set up a similar environment and walk through the hands-on
-sessions of the bootcamp by following the instructions below.
+sessions of the bootcamp by following the instructions below. Allow 30G of storage for all files used in the tutorial.
 
 ### From fastqs to contact matrices
 
@@ -157,7 +157,7 @@ file.
 ### From contact matrices to biology
 
 1. Install [conda](https://conda.io/miniconda.html), if you have not
-   already done so. It is installed for you if you are using the docker image from the previous section. Conda is an open source package management tool that allows you to create separate environments.
+   already done so. Conda is an open source package management tool that allows you to create separate environments.
 2. Clone this repo and set up the environment.
     ```
     git clone https://github.com/hms-dbmi/hic-data-analysis-bootcamp
