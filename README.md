@@ -236,8 +236,8 @@ Now, you should be able to follow slides 24 through 59 of [the tutorial](https:/
 * [pairsamtools](https://github.com/mirnylab/pairsamtools)
 * [pairix](https://github.com/4dn-dcic/pairix)
 * [cooler](https://github.com/mirnylab/cooler) and [docs](http://cooler.readthedocs.io/en/latest/)
-* [HiGlass](http://cooler.readthedocs.io/en/latest/) and [wiki](https://github.com/hms-dbmi/higlass/wiki)
-* [HiPiler](http://hipiler.lekschas.de) and [source code](https://github.com/flekschas/hipiler) and [docs](https://github.com/flekschas/hipiler/wiki)
+* [HiGlass](http://higlass.io), [source code](https://github.com/hms-dbmi/higlass/), and [docs](https://hms-dbmi.github.io/higlass-docs/)
+* [HiPiler](http://hipiler.higlass.io), [source code](https://github.com/flekschas/hipiler), [docs](https://github.com/flekschas/hipiler/wiki), [project page](http://hipiler.lekschas.de)
 
 ### Package and environment management
 
