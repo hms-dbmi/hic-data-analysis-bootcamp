@@ -1,14 +1,14 @@
 # Hi-C Data Analysis Bootcamp
 
-> A workshop on measuring, analyzing, and visualizing the 3D genome with Hi-C provided by Harvard, MIT, and UMassMed.
+> A tutorial on measuring, analyzing, and visualizing the 3D genome with Hi-C provided by Harvard, MIT, and UMassMed.
 
 ![Funky Colormaps](/teaser.jpg?raw=true "Some funky colormaps")
 
+**📢 Slides, code, and data is available for you to rerun the analyses!** 
+
 ## Introduction
 
-4D Nucleome Data Coordination and Integration Center and the Center for 3D Structure and Physics of the Genome hosted a Hi-C data analysis
-bootcamp at Harvard Medical School on May, 8th 2018. This repo contains the material for this bootcamp. Below, you can find more
-information on how to walk through the hands-on sessions offline.
+4D Nucleome Data Coordination and Integration Center and the Center for 3D Structure and Physics of the Genome hosted a Hi-C data analysis bootcamp at Harvard Medical School on May, 8th 2018. This repo contains the material for this bootcamp. Below, you can find more information on how to walk through the hands-on sessions offline.
 
 ## Files in this repository
 
